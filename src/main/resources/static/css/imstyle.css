@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* open frame */
+*{margin:0; padding:0}
+body{text-align:center}
+body,td,input,textarea,select,button{color:#444; font:12px/1.6em Verdana,Helvetica,Arial,sans-serif; line-height:120%}
+ul,li{list-style:none}
+img{border:0}
+.input1{border-left:1px solid #444; border-top:1px solid #444; border-right:1px solid #999; border-bottom:1px solid #999; height:20px; line-height:20px; color:#0066CC; display:inline; padding:0}
+.input2{border-left:1px solid #CCCCCC; border-top:1px solid #CCCCCC; border-right:1px solid #CCCCCC; border-bottom:1px solid #CCCCCC; height:20px; line-height:20px; color:#444; display:inline; padding:0}
+a.openframe:link, a.openframe:visited{color:#FF0200; text-decoration:underline}
+a.openframe:hover, a.openframe:active{color:#17BACB; text-decoration:underline}
+a.openframe_2:link, a.openframe_2:visited{color:#444; text-decoration:none}
+a.openframe_2:hover, a.openframe_2:active{color:#FF6600; text-decoration:underline}
+.b_photo_1{width:74px; height:91px}
+.red{color:#FF6600}
+.clear{clear:both}
+#open_f{width:560px; height:350px; border:8px solid #FFFFFF; background:#FFFFFF}
+#open_f_close{text-align:right; margin:10px 10px 0 0}
+#open_f_left{float:left; width:300px}
+#open_f_title{font-size:14px; color:#FF0200; font-weight:bold; height:30px; line-height:30px; margin:0 0 10px 20px; text-align:left}
+#open_f_left ul{margin:0 0 0 20px; height:200px; border-right:1px solid #FFFFFF}
+#open_f_left ul li{height:22px; line-height:22px; margin:0 0 10px 0; text-align:left}
+#open_f_left h2{font-size:14px; color:#336699; font-weight:normal}
+#open_f_left ul li h1{float:left; width:70px; margin:0; padding:0; font-size:12px; color:#333333; font-weight:normal}
+#open_f_left ul li span{float:left; width:208px; margin:0}
+#open_f_right{float:left; width:259px; text-align:left}
+#open_f_right p{width:90%; margin:0 auto; font-size:12px; line-height:150%}
+#open_f_right p span{color:#FF0200}
+#open_f_right p a:link,#open_f_right p a:visited{color:#FF0200; text-decoration:underline}
+#open_f_right p a:hover,#open_f_right p a:active{color:#17BACB; text-decoration:underline}
+#open_f_right h2{font-size:14px; height:20px; line-height:20px; margin:50px 0 0 50px; font-weight:normal}
+#open_f_right h2 a:link,#open_f_right h2 a:visited{color:#FF0200; text-decoration:underline}
+#open_f_right h2 a:hover,#open_f_right h2 a:active{color:#17BACB; text-decoration:underline}
+#open_f_right h3{font-size:12px; height:20px; line-height:20px; margin:10px 0 0 50px; text-align:left; font-weight:normal}
+#open_f_right h3 a:link,#open_f_right h3 a:visited{color:#FF0200; text-decoration:underline}
+#open_f_right h3 a:hover,#open_f_right h3 a:active{color:#17BACB; text-decoration:underline}
+#open_f_info{margin:0 auto; text-align:left}
+#open_f_info h1{width:450px; height:40px; line-height:40px; background:url(right.gif) no-repeat left; padding-left:50px; font-size:26px; color:#33CC33; margin:0 auto 20px auto}
+#open_f_info h2{width:450px; height:40px; line-height:40px; background:url(wrong.gif) no-repeat left; padding-left:50px; font-size:26px; color:#ff3300; margin:0 auto 20px auto}
+#open_f_info p{text-align:left; width:500px; margin:0 auto; line-height:150%; min-height:20px}
+#open_f_info p span{font-size:14px; line-height:150%}
+#open_f_info h3{width:480px; margin:10px auto; padding:10px; line-height:20px; font-size:12px; font-weight:normal; color:#0099FF; border:1px dashed #CCC}
+
+#open_f_main{width:520px; margin:0 auto}
+#open_f_main h1{line-height:20px; margin-bottom:10px; font-size:12px; font-weight:normal; color:#336699; text-align:left}
+#open_f_main h2{line-height:20px; margin-bottom:10px; padding:0 5px 0 5px; font-size:12px; font-weight:normal; background:#FFFFCC; text-align:left}
+#open_f_main h3{line-height:20px; margin-bottom:10px; text-align:left; font-size:12px; font-weight:normal}
+#open_f_main h3 span{background:#0099CC; color:#FFFFFF}
+#book_list{width:100%}
+#book_list li{width:104px; float:left}
+#book_list li img{margin-bottom:2px}
+#page_str{line-height:20px; margin-bottom:10px}
+#open_f_form{width:100%}
+#open_f_form li{line-height:20px; margin-bottom:10px; text-align:left}
+#open_f_form li h4{width:100px; float:left; font-size:12px; font-weight:normal}
+#open_f_form li p{width:420px; float:right}

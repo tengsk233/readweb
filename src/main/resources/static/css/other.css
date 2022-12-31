@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*open frame fav*/
+#frame_fav{width:600px; height:auto; border:3px solid #E6E6E6; background: #FFF; padding:5px; margin:0 auto}
+#frame_fav_1{width:100%; line-height:20px}
+#frame_fav_1 h1{width:560px; float:left; text-align:left; font-size:14px; line-height:25px; background:#E6E6E6; padding-left:10px}
+#frame_fav_1 p{width:30px; float:right; background:#E6E6E6; height:22px; padding-top:3px}
+#frame_fav_2{width:100%; line-height:20px; margin-top:5px}
+#frame_fav_2 h1{width:80px; float:left; font-weight:normal; text-align:left; color:#0066CC}
+#frame_fav_2_1{width:460px; float:right; padding-left:10px; text-align:left;}
+#frame_fav_2_1 p{width:230px; float:left; white-space:nowrap; overflow:hidden}
+#frame_fav_2_2{width:460px; float:right; padding-left:10px; text-align:left;}
+#frame_fav_2_2 ul{width:100%}
+#frame_fav_2_2 ul li{width:80px; margin-right:10px; display:inline; white-space:nowrap; overflow:hidden; float:left}
+#frame_fav_2_2 p{width:80px; float:left; white-space:nowrap; overflow:hidden}
+#frame_fav_3{width:100%; line-height:20px; margin-top:5px}
+#frame_fav_3_left{width:310px; float:left}
+#frame_fav_3_left ul li{margin-top:10px; text-align:left}
+#frame_fav_3_left ul li h1{width:60px; float:left; font-weight:normal; color:#0066CC}
+#frame_fav_3_left ul li p{width:250px; float:right}
+#frame_fav_3_right{width:230px; float:right; background:#EFEFEF; padding:3px}
+#frame_fav_3_right p{text-align:left}
+#frame_fav_4{text-align:left; padding-top:5px}
+#frame_fav_5{text-align:center; padding-top:5px; margin-top:5px}
+
+/*open frame recommend*/
+#frame_recom{width:600px; height:auto; border:3px solid #E6E6E6; background:#FFF; padding:5px}
+
+/*open frame jubao*/
+#frame_jubao{width:600px; height:auto; border:3px solid #E6E6E6; background:#FFF; padding:5px; margin:0 auto}
+
+.loading_message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+}
+.loading_message p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -1em 0 0 -4.3em;
+    width: 130px;
+}
+.loading_message b {
+    display: block;
+    margin: 0 1px;
+    border: solid #aaa;
+    border-width: 1px 0;
+    padding: 0;
+    color: #888;
+}
+.loading_message b b {
+    margin:0 -1px;
+    padding:0;
+    border-width:0 1px;
+}
+.loading_message b b b {
+    margin: 0;
+    padding: 0 .6em 0 29px;
+    border-width:0;
+    height: 3.3em;
+    line-height: 3.3em;
+    background:#efefef;
+}
+.loading_message img {
+    position: absolute;
+    top: 30%;
+    left: 8px;
+    margin: -8px 0 0 0;
+}

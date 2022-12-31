@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.first.mapper.BookMapper">
+    <select id="queryBookByAuthor" resultType="Book">
+        select * from bookweb.book where author like concat('%',#{author},'%')
+    </select>
+    <select id="queryBookByID" resultType="Book">
+        select * from bookweb.book where book_id=#{bookID}
+    </select>
+    <select id="queryBookByType" resultType="Book">
+        select * from bookweb.book where label like CONCAT('%',#{type},'%')
+    </select>
+    <select id="queryBookByName" resultType="Book">
+        select * from bookweb.book where book_name like CONCAT('%',#{bookName},'%')
+    </select>
+    <select id="queryInitialBookList" resultType="Book">
+        select * from bookweb.book ORDER BY rand() limit 20
+    </select>
+    <select id="queryFavoriteBook" resultType="Book">
+        select book.* from bookweb.bookshelf ,bookweb.book where bookshelf.book_id=book.book_id
+                    and userID=#{userID} and label like concat('%',#{bookLabel},'%')
+    </select>
+    <insert id="addFavoriteBook" >
+        insert into bookweb.bookshelf values (#{userID},#{bookID})
+    </insert>
+    <delete id="deleteFavoriteBook" >
+        delete from bookweb.bookshelf where userID=#{userID} and book_id=#{bookID}
+    </delete>
+</mapper>

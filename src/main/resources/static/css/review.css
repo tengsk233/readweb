@@ -1,0 +1,8 @@
+@charset "utf-8";
+/* CSS Document */
+.review_left{width:650px}
+.review_right{width:200px}
+.review_tab{text-align:left}
+.review_tab td{vertical-align:text-top; padding-bottom:20px}
+.review_input{height:22px; font-size:14px; line-height:20px; border:1px inset #999}
+.review_btn{height:28px; width:56px; line-height:28px; border:0; background:url(../../images/review/btn.gif) no-repeat}

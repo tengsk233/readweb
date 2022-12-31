@@ -1,0 +1,10 @@
+.simp-intro{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    word-break: break-all;
+    font-family: "宋体", fangsong;
+    color: #000000;
+}

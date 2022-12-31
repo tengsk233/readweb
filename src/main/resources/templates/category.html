@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="referrer" content="no-referrer"/>
+    <title>在线阅读 | 北邮阅读网</title>
+    <link th:href="@{/css/common.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/thickbox.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/skin_0.css}" rel="stylesheet" type="text/css"  id="skinCss"/>
+    <link th:href="@{/css/global.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/other.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/review.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/openframe/style.css}" type="text/css" rel="stylesheet"  />
+    <link th:href="@{/css/greybox/gb_styles.css}" rel="stylesheet" type="text/css" />
+
+    <script th:src="@{/js/common.js}" type="text/javascript"></script>
+    <script th:src="@{/js/common/form.js}" type="text/javascript"></script>
+    <script th:src="@{/js/common/jquery-1.7.2.js}" type="text/javascript"></script>
+    <script th:src="@{/View/js/common/thickbox.js}" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function(){
+            showPressList();
+            showBookInfo('.rightEbookBookList');
+        });
+    </script>
+</head>
+
+<body style="background-color: #f0f8fd">
+<div  th:if="${session.user} eq null">
+    <div id="header1" class="ww clearfix">
+        <div id="sim_login" class="rr"><h1></h1><p class="yellow"><a th:href="@{/mainTologin}" class="thickbox yellow" title="登录">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a th:href="@{/mainTologin}" class="thickbox yellow" title="注册">注册</a></p><h2></h2></div>
+    </div>
+</div>
+<div id="header" class="ww clearfix" th:unless="${session.user} eq null">
+    <div id="sim_login1" class="rr"><h1></h1>
+        <p class="yellow">当前账户:<a href="" class="u_name">[[${session.user}]]</a>&nbsp;</p>
+        <h2></h2></div>
+</div>
+<div id="mainTop" class="ww">
+    <div id="login" class="ll block"><a href="" title="logo"><img src="img/logo.png" alt="logo" /></a></div>
+    <div id="mainNav" class="ll f14">
+        <ul class="clearfix">
+            <li><a th:href="@{/}" class="black">首页</a></li>
+            <li><a th:href="@{/category_do(bookLabel='')}" class="black">图书</a></li>
+            <li><a th:href="@{/bookshelf_do(bookLabel='/')}" class="black">我的书架</a></li>
+        </ul>
+    </div>
+    <form id="form2" name="form2" method="get" th:action="@{/search_do}">搜书：
+        <label>
+            <input name="searchInfo" id="key" type="text">
+        </label>
+        <input type="submit" value="搜索">
+    </form>
+
+</div><div id="subNav" class="wMax">
+    <div id="subNav_t" ></div>
+    <div id="subNav_b" style="background-color: #3dd5f3">
+        <div class="ww clearfix">
+            <h1>图书分类</h1>
+        </div>
+    </div>
+</div><div class="ww clearfix">
+    <div class="leftBox2 ll">
+        <div id="ebookSubNav" class="clearfix">
+            <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                <tr>
+                    <td onclick="location.href='/category_do?bookLabel=/';" class="ebookSubNav1"><h1 class="ebookSubNav_on">全部图书</h1></td>
+                </tr>
+                <tr>
+                    <td onclick="location.href='/category_do?bookLabel=经典';" class="ebookSubNav2"><h1 class="ebookSubNav_off" onmouseover="this.className='ebookSubNav_on';" onmouseout="this.className='ebookSubNav_off';">经典</h1></td>
+                </tr>
+                <tr>
+                    <td onclick="location.href='/category_do?bookLabel=科幻';" class="ebookSubNav2"><h1 class="ebookSubNav_off" onmouseover="this.className='ebookSubNav_on';" onmouseout="this.className='ebookSubNav_off';">科幻</h1></td>
+                </tr>
+                <tr>
+                    <td onclick="location.href='/category_do?bookLabel=成长';" class="ebookSubNav2"><h1 class="ebookSubNav_off" onmouseover="this.className='ebookSubNav_on';" onmouseout="this.className='ebookSubNav_off';">成长</h1></td>
+                </tr>
+                <tr>
+                    <td onclick="location.href='/category_do?bookLabel=生活';" class="ebookSubNav2"><h1 class="ebookSubNav_off" onmouseover="this.className='ebookSubNav_on';" onmouseout="this.className='ebookSubNav_off';">生活</h1></td>
+                </tr>
+                <tr>
+                    <td onclick="location.href='/category_do?bookLabel=悬疑';" class="ebookSubNav2"><h1 class="ebookSubNav_off" onmouseover="this.className='ebookSubNav_on';" onmouseout="this.className='ebookSubNav_off';">悬疑</h1></td>
+                </tr>
+                <tr>
+                    <td onclick="location.href='/category_do?bookLabel=青春';" class="ebookSubNav2"><h1 class="ebookSubNav_off" onmouseover="this.className='ebookSubNav_on';" onmouseout="this.className='ebookSubNav_off';">青春</h1></td>
+                </tr>
+                <tr>
+                    <td onclick="location.href='/category_do?bookLabel=爱情';" class="ebookSubNav2"><h1 class="ebookSubNav_off" onmouseover="this.className='ebookSubNav_on';" onmouseout="this.className='ebookSubNav_off';">爱情</h1></td>
+                </tr>
+                <tr>
+                    <td onclick="location.href='/category_do?bookLabel=历史';" class="ebookSubNav2"><h1 class="ebookSubNav_off" onmouseover="this.className='ebookSubNav_on';" onmouseout="this.className='ebookSubNav_off';">历史</h1></td>
+                </tr>
+                <tr>
+                    <td onclick="location.href='/category_do?bookLabel=科技';" class="ebookSubNav2"><h1 class="ebookSubNav_off" onmouseover="this.className='ebookSubNav_on';" onmouseout="this.className='ebookSubNav_off';">科技</h1></td>
+                </tr>
+                <tr>
+                    <td onclick="location.href='/category_do?bookLabel=外国';" class="ebookSubNav2"><h1 class="ebookSubNav_off" onmouseover="this.className='ebookSubNav_on';" onmouseout="this.className='ebookSubNav_off';">外国</h1></td>
+                </tr>
+                <tr>
+                    <td onclick="location.href='/category_do?bookLabel=传记';" class="ebookSubNav2"><h1 class="ebookSubNav_off" onmouseover="this.className='ebookSubNav_on';" onmouseout="this.className='ebookSubNav_off';">传记</h1></td>
+                </tr>
+                <tr>
+                    <td onclick="location.href='/category_do?bookLabel=哲学';" class="ebookSubNav2"><h1 class="ebookSubNav_off" onmouseover="this.className='ebookSubNav_on';" onmouseout="this.className='ebookSubNav_off';">哲学</h1></td>
+                </tr>
+                <tr>
+                    <td onclick="location.href='/category_do?bookLabel=长篇';" class="ebookSubNav2"><h1 class="ebookSubNav_off" onmouseover="this.className='ebookSubNav_on';" onmouseout="this.className='ebookSubNav_off';">长篇</h1></td>
+                </tr>
+                <tr>
+                    <td onclick="location.href='/category_do?bookLabel=短篇';" class="ebookSubNav2"><h1 class="ebookSubNav_off" onmouseover="this.className='ebookSubNav_on';" onmouseout="this.className='ebookSubNav_off';">短篇</h1></td>
+                </tr>
+                <tr>
+                    <td onclick="location.href='/category_do?bookLabel=网络';" class="ebookSubNav2"><h1 class="ebookSubNav_off" onmouseover="this.className='ebookSubNav_on';" onmouseout="this.className='ebookSubNav_off';">网络</h1></td>
+                </tr>
+            </table>
+        </div>
+        <div id="ebookLeftHistory">
+            <div id="ebookLeftHistory_t" class="clearfix"><h1>阅读历史</h1><p><a href="">清空</a></p></div>
+            <h2 class="line01">使用本功能前需要先 <a th:href="@{/mainTologin}" class="thickbox yellow" title="登录">登录</a></h2>
+        </div>
+    </div>
+    <div class="rightBox2 rr">
+        <div id="ebookBookList">
+            <div class="ebookSort marTop20 clearfix"><h1>排序：<button class="btn6 btn6_on" onclick="location.href='/book/bcid/2/cl/0-0-0-0-0';">上架时间</button>&nbsp;&nbsp;<button class="btn6 " onclick="location.href='/book/bcid/2/cl/0-0-0-1-0';">点击量</button></h1></div>
+
+            <ul class="rightEbookBookList clearfix">
+                <li th:each="book,s:${resultBookList}">
+                    <div class="detail-frame">
+                        <h2 th:text="${book.book_name}"></h2><p class="color-gray" th:text="${book.author}+' / '+${book.publishing_house}+' / '+${book.year_of_publication}"></p><p th:text="${book.brief_introduction}">
+                    </p></div>
+                    <a th:href="@{bookdetail_do(bookID=${book.book_id})}"/>
+                        <img th:src="${book.img_url}" width="128" height="166" class="imgBook02 imgb" />
+                    </a><br />
+                    <a th:href="@{bookdetail_do(bookID=${book.book_id})}"  th:text="${book.book_name}"></a></li>
+            </ul>
+        </div>
+        <div class="pageStr clearfix"> 首页  1  <a href="">2</a>  <a href="">3</a>  <a href="">4</a>  <a href="">5</a>  <a href="">6</a>  <a href="">7</a>  <a href="">8</a>  <a href="">9</a>  <a href="">10</a>  <a href="">下一页</a>  <a href="">尾页</a> 共1250条</div>
+    </div>
+</div>
+<div class="clear"></div>
+
+</body>
+</html>

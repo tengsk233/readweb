@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{/css/read.css}" rel="stylesheet">
+    <title>[[${chapter.getChapter()}]]</title>
+</head>
+<body style="background-color: #f0f8fd">
+<div class="b1">
+    <div class="b2">
+        <label class="t1">[[${chapter.getChapter()}]]</label>
+        <div class="b3" th:if="${NofP>=1}" th:each="i:${#numbers.sequence(1,NofP)}">
+            <p class="p1">[[${reader.readLine()}]]</p>
+        </div>
+    </div>
+    <div class="b4">
+        <form class="form1" th:action="@{/read(bookID=${chapter.getBookID()},OofC=${lastOrder})}" method="post">
+            <button class="change" th:disabled="${last}" type="submit">上一章</button>
+        </form>
+        <div class="line"></div>
+        <form class="form1" th:action="@{/read(bookID=1000,OofC=1)}" method="post">
+            <button class="change" type="submit">目录</button>
+        </form>
+        <div class="line"></div>
+        <form class="form1" th:action="@{/read(bookID=${chapter.getBookID()},OofC=${nextOrder})}" method="post">
+            <button class="change" th:disabled="${next}" type="submit">下一章</button>
+        </form>
+    </div>
+</div>
+<p>[[${reader.close()}]]</p>
+</body>
+</html>

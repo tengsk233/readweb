@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.first.mapper.ReadMapper">
+    <select id="findAddress" resultType="Chapter">
+        select * from bookweb.chapterlist where bookID=#{bookID} and OofC=#{OofC}
+    </select>
+    <select id="countChapter" resultType="int">
+        select COUNT(*) from bookweb.chapterlist where bookID=#{bookID}
+    </select>
+</mapper>

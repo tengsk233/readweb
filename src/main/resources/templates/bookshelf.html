@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="referrer" content="no-referrer"/>
+<meta name="keywords" content="北邮阅读" />
+<meta name="description" content="阅读是一种生活方式，阅读成就精彩人生。北邮阅读旨在通过这个平台，让更多的人爱上阅读，并分享读后感。" />
+<title>我的收藏 | 北邮阅读</title>
+    <!--<link th:href="@{/css/common.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/thickbox.css}" rel="stylesheet" type="text/css" />
+
+
+    <link th:href="@{/css/global.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/other.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/review.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/imstyle.css}" type="text/css" rel="stylesheet"  />
+    <link th:href="@{/css/styles.css}" rel="stylesheet" type="text/css" />-->
+    <link th:href="@{/css/common.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/thickbox.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/global.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/other.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/review.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/imstyle.css}" type="text/css" rel="stylesheet"  />
+    <link th:href="@{/css/styles.css}" rel="stylesheet" type="text/css" />
+
+
+<!--
+var xajaxConfig = {
+debug: false,
+statusMessages: false,
+waitCursor: true,
+version: "xajax 0.5 Beta 1",
+legacy: false
+};
+var xajaxLoaded=false;
+function xajax_editFavBook(){return xajax.call("editFavBook", {parameters: arguments});}
+function xajax_pageMyFavList(){return xajax.call("pageMyFavList", {parameters: arguments});}
+	</script>
+	<script type="text/javascript" src="js/xajax.js"></script>
+	<script type="text/javascript">
+window.setTimeout(function () { if (!xajaxLoaded) { alert('Error: the xajax Javascript file could not be included. Perhaps the URL is incorrect?\nURL: javascript/xajax.js'); } }, 6000);
+	</script>
+-->
+<!--
+<script type="text/javascript">
+    xajax.loadingFunction = function(){
+		xajax.$('loadingMessage').style.display='block';
+	};
+    xajax.doneLoadingFunction = function(){
+		xajax.$('loadingMessage').style.display = 'none';
+	}
+</script>
+-->
+
+
+
+</head>
+<body style="background-color: #f0f8fd"><!--navigator begin-->
+<div  th:if="${session.user} eq null">
+    <div id="header1" class="ww clearfix">
+        <div id="sim_login" class="rr"><h1></h1><p class="yellow"><a th:href="@{/mainTologin}" class="thickbox yellow" title="登录">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a th:href="@{/mainTologin}" class="thickbox yellow" title="注册">注册</a></p><h2></h2></div>
+    </div>
+</div>
+<div id="header" class="ww clearfix" th:unless="${session.user} eq null">
+    <div id="sim_login1" class="rr"><h1></h1>
+        <p class="yellow">当前账户:<a href="" class="u_name">[[${session.user}]]</a>&nbsp;</p>
+        <h2></h2></div>
+</div>
+<div id="mainTop" class="ww">
+	<div id="login" class="ll block"><a th:href="@{/}" title="logo"><img src="img/logo.png" alt="logo" /></a></div>
+    <div id="mainNav" class="ll f14">
+    	<ul class="clearfix">
+
+            <li><a th:href="@{/}" class="black">首页</a></li>
+            <li><a th:href="@{/category_do(bookLabel='/')}" class="black">图书</a></li>
+            <li><a th:href="@{/bookshelf_do(bookLabel='/')}" class="black">我的书架</a></li>
+        </ul>
+    </div>
+
+    <form id="form1" name="form1" method="get" th:action="@{/search_do}">搜书：
+        <label>
+            <input name="searchInfo" id="key" type="text">
+        </label>
+        <input type="submit" value="搜索">
+    </form>
+</div>
+<!--<div id="subNav" class="wMax">
+	<div id="subNav_t"></div>
+    <div id="subNav_b">
+   	 </div>
+</div>-->
+<!--navigator end-->
+
+
+
+<!--<script language="javascript" type="text/javascript" src="js/comment2.js"></script>
+-->
+<!--我要收藏-->
+<!--<div id="frame_fav" style="display:none; position:absolute; z-index:3">
+	<div id="frame_fav_1">
+    	<h1>收藏图书：《<span class="style_016" id="booknameMsg"></span>》</h1><p><a href="javascript:void(0)" onclick="javascript:closeBox('frame_fav');" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('close_frame_1','','images/openframe/close02.gif',1)"><img src="images/openframe/close01.gif" alt="关闭窗口" name="close_frame_1" width="20" height="20" border="0" id="close_frame_1" /></a></p>
+   	  <div class="clear"></div>
+    </div>
+    <form id="form3" name="form3" method="post" action="my_favourites.php?goto=editfav" onsubmit="return checkFavBook();"><input name="fbid" id="fbid" type="hidden" /><input name="readstate" id="readstate" type="hidden" /><input name="page" id="page" type="hidden" />
+    <div id="frame_fav_2">
+    	<h1>适读年龄段:</h1>
+        <div id="frame_fav_2_1">
+        	<span id="suitableagesMsg"></span>		
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div id="frame_fav_2" style="margin-top:5px">
+        <h1>对该书的评价:</h1>
+        <div id="frame_fav_2_2">
+        	<span id="evaluationMsg"></span>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div id="frame_fav_3">
+    	<div id="frame_fav_3_left">
+        	<ul>
+            	<li><h1>标签:</h1><p><input name="tag" id="tag" class="input_2" style="width:248px" /><br /><span class="red">多个标签之间用空格隔开</span></p><div class="clear"></div></li>
+                <li><h1>附注说明:</h1><p><textarea name="note" id="note" class="input_2" style="width:248px; height:54px"></textarea></p><div class="clear"></div></li>
+                <li><h1>&nbsp;</h1><p><span id="islockMsg"></span>&nbsp;不让别人知道此次收藏</p><div class="clear"></div></li>
+            </ul>
+        </div>
+        <div id="frame_fav_3_right">
+        	<p>CC成员常用的标签:</p>
+            <p><span id="cctagsMsg"></span></p>
+        	<p><span class="blue">我的标签:</span></p>
+            <p>暂无</p>
+      </div>
+        <div class="clear"></div>
+    </div>
+    <div id="frame_fav_4" class="top_line"><input name="ireadstate" type="submit" value="读过这本书" class="btn3" />&nbsp;<input name="ireadstate" type="submit" value="正在读这本书" class="btn3" />&nbsp;<input name="ireadstate" type="submit" value="想读这本书" class="btn3" />&nbsp;<input name="button" type="button" onClick="javascript:closeBox('frame_fav');" value="取消" class="btn1" /></div>
+    </form>
+</div>
+-->
+<!--my_favourites begin-->
+<div class="ww clearfix" style="width: 100%">
+	<!--my_favourites left begin-->
+
+<div class="leftBox ll" style="width: 100%">
+  <div id="cc_replay" style="width: 100%">
+    <!--<div class="titcc"  style="background-color: #3dd5f3"><font class="bookname">全部收藏 </font></div>-->
+      <div id="subNav_b" style="background-color: #3dd5f3; width: 100%">
+          <div class="ww clearfix">
+              <h1>全部收藏</h1>
+          </div>
+      </div>
+    <ul class="mar_top" id="pageList" style="margin-left: 18%">
+            <li class="mar_top" th:each="book,s:${resultBookList}">
+        <div class="cc_fav_list_1"><a th:href="@{/read(bookID=1000,OofC=0)}" th:title="${book.book_name}"><img th:src="${book.img_url}" th:alt="${book.book_name}"  width="100" height="136"/></a></div>
+        <div class="cc_fav_list_2">
+          <h2>&nbsp;&nbsp;在读 <a th:href="@{/read(bookID=1000,OofC=0)}"  th:text="${book.book_name}"></a></h2>
+          <!--<h3><a href="javascript:void(0);" onclick="javascript:showBox('frame_fav'); xajax_editFavBook(24428, 1);">修改</a>&nbsp;<a href="#" onclick="if(rRDelsure('你确定要删除吗？')){window.location.href='my_favourites.php?goto=removefav&page=1&readstate=0&fbid=24428';}">删除</a></h3>-->
+          <div class="clear"></div>
+            <p>作者<a th:href="@{/search_do(searchInfo=${book.author})}">:[[${book.author}]]&nbsp;</a>&nbsp;</p>
+              <p>出版社: [[${book.publishing_house}]]&nbsp; </p>
+            <p>出版时间：[[${book.year_of_publication}]]</p>
+            <a th:href="@{/delete_do(bookID=${book.book_id})}">删除</a>
+            <br/>
+            <span></span><br />
+            <!--<span>09-08 15:05</span>&nbsp;<img src="images/common/star_3.gif" title="3星评价" alt="3星评价" /></p>-->
+        </div>
+        <div class="clear"></div>
+      </li>
+            <li class="mar_top">
+        <!--<div class="cc_fav_list_1"><a href="book_detail.php?bookid=7380" title="阿莲娜、老鼠和巨猫"><img src="upload/book/201306/1372130076829587368.jpg" alt="阿莲娜、老鼠和巨猫"  width="100" height="136"/></a></div>
+        <div class="cc_fav_list_2">
+          <h2>&nbsp;&nbsp;在读<a href="book_detail.php?bookid=7380" >《阿莲娜、老鼠和巨猫》</a></h2>
+          <h3><a href="javascript:void(0);" onclick="javascript:showBox('frame_fav'); xajax_editFavBook(24427, 1);">修改</a>&nbsp;<a href="#" onclick="if(rRDelsure('你确定要删除吗？')){window.location.href='my_favourites.php?goto=removefav&page=1&readstate=0&fbid=24427';}">删除</a></h3>
+          <div class="clear"></div>
+          <p>作者<a href="#">:（瑞士）苏西·博达尔　著，漪然　译&nbsp;</a>&nbsp;出版社:<a href="#">华东师范大学出版社&nbsp;</a>&nbsp;出版时间：2009-05<br />
+            <span>    爱幻想的阿莲娜，遇上了会讲故事的小老鼠黑面包，阿莲娜每天以一块新鲜的干酪，交换黑面包一个新故事，两人在一起渡过了...</span><br />
+            <span>09-08 15:05</span>&nbsp;<img src="images/common/star_3.gif" title="3星评价" alt="3星评价" /></p>
+        </div>
+        <div class="clear"></div>
+      </li>
+            <li class="mar_top">
+        <div class="cc_fav_list_1"><a href="book_detail.php?bookid=9243" title="男孩的最后8个愿望"><img src="upload/book/201510/1445419563130689017.jpg" alt="男孩的最后8个愿望"  width="100" height="136"/></a></div>
+        <div class="cc_fav_list_2">
+          <h2>&nbsp;&nbsp;在读<a href="book_detail.php?bookid=9243" >《男孩的最后8个愿望》</a></h2>
+          <h3><a href="javascript:void(0);" onclick="javascript:showBox('frame_fav'); xajax_editFavBook(24426, 1);">修改</a>&nbsp;<a href="#" onclick="if(rRDelsure('你确定要删除吗？')){window.location.href='my_favourites.php?goto=removefav&page=1&readstate=0&fbid=24426';}">删除</a></h3>
+          <div class="clear"></div>
+          <p>&nbsp;</a>&nbsp;出版社:<a href="#">安徽少年儿童出版社&nbsp;</a>&nbsp;出版时间：2015-09<br />
+            <span>“金麦田少儿国际获奖丛书（升级版）”系列丛书
+
+“等你读到我的日记时，我应该已经死了。 ”
+萨姆是一个患有白血病的...</span><br />
+            <span>09-08 15:05</span>&nbsp;<img src="images/common/star_3.gif" title="3星评价" alt="3星评价" /></p>
+        </div>
+        <div class="clear"></div>
+      </li>
+            <li class="mar_top">
+        <div class="cc_fav_list_1"><a href="book_detail.php?bookid=7917" title="火车司机什么时候上厕所？：趣味盎然的铁路知识"><img src="upload/book/201402/1392012903293317939.jpg" alt="火车司机什么时候上厕所？：趣味盎然的铁路知识"  width="100" height="136"/></a></div>
+        <div class="cc_fav_list_2">
+          <h2>&nbsp;&nbsp;在读<a href="book_detail.php?bookid=7917" >《火车司机什么时候上厕所？：趣味盎然的铁路知识》</a></h2>
+          <h3><a href="javascript:void(0);" onclick="javascript:showBox('frame_fav'); xajax_editFavBook(24425, 1);">修改</a>&nbsp;<a href="#" onclick="if(rRDelsure('你确定要删除吗？')){window.location.href='my_favourites.php?goto=removefav&page=1&readstate=0&fbid=24425';}">删除</a></h3>
+          <div class="clear"></div>
+          <p>作者<a href="#">:德国Christophorus出版集团，德国Velber出版社　编著&nbsp;</a>&nbsp;出版社:<a href="#">中国铁道出版社&nbsp;</a>&nbsp;出版时间：2011-08<br />
+            <span>给最挑剔的孩子最满意的答案，进一步挖掘孩子的求知欲和探索精神！这本《火车司机什么时候上厕所(趣味盎然的铁路知识)(精)》...</span><br />
+            <span>09-08 15:04</span>&nbsp;<img src="images/common/star_3.gif" title="3星评价" alt="3星评价" /></p>
+        </div>
+        <div class="clear"></div>
+      </li>
+            <li class="mar_top">
+        <div class="cc_fav_list_1"><a href="book_detail.php?bookid=9492" title="摇摇晃晃，一起成长"><img src="upload/book/201703/1488336729974570805.jpg" alt="摇摇晃晃，一起成长"  width="100" height="136"/></a></div>
+        <div class="cc_fav_list_2">
+          <h2>&nbsp;&nbsp;在读<a href="book_detail.php?bookid=9492" >《摇摇晃晃，一起成长》</a></h2>
+          <h3><a href="javascript:void(0);" onclick="javascript:showBox('frame_fav'); xajax_editFavBook(24424, 1);">修改</a>&nbsp;<a href="#" onclick="if(rRDelsure('你确定要删除吗？')){window.location.href='my_favourites.php?goto=removefav&page=1&readstate=0&fbid=24424';}">删除</a></h3>
+          <div class="clear"></div>
+          <p>作者<a href="#">:悠鹿苏苏&nbsp;</a>&nbsp;出版社:<a href="#">中国少年儿童出版社&nbsp;</a>&nbsp;出版时间：2016-08<br />
+            <span> 本书以新手妈妈手绘日记的形式绘制了一个小婴儿从刚出生到学步期的成长历程，除了宝宝日常喂养、生长发育、疾病护理等育儿内容...</span><br />
+            <span>09-08 15:04</span>&nbsp;<img src="images/common/star_3.gif" title="3星评价" alt="3星评价" /></p>
+        </div>
+        <div class="clear"></div>
+      </li>
+            <li class="mar_top">
+        <div class="cc_fav_list_1"><a href="book_detail.php?bookid=9612" title="九神鹿绘本馆——封神传"><img src="upload/book/201705/1494486501127253793.jpg" alt="九神鹿绘本馆——封神传"  width="100" height="136"/></a></div>
+        <div class="cc_fav_list_2">
+          <h2>&nbsp;&nbsp;在读<a href="book_detail.php?bookid=9612" >《九神鹿绘本馆——封神传》</a></h2>
+          <h3><a href="javascript:void(0);" onclick="javascript:showBox('frame_fav'); xajax_editFavBook(24423, 1);">修改</a>&nbsp;<a href="#" onclick="if(rRDelsure('你确定要删除吗？')){window.location.href='my_favourites.php?goto=removefav&page=1&readstate=0&fbid=24423';}">删除</a></h3>
+          <div class="clear"></div>
+          <p>作者<a href="#">:赵成伟 绘  缪惟  唐黛 编著&nbsp;</a>&nbsp;出版社:<a href="#">中国少年儿童出版社&nbsp;</a>&nbsp;出版时间：2017-04<br />
+            <span>读《封神传》，看叱咤风云人物
+玉皇大帝：道教神系中地位*、神权*的神，总管天地人三界。在《西游记》中也出现过。
+元始...</span><br />
+            <span>09-08 15:04</span>&nbsp;<img src="images/common/star_3.gif" title="3星评价" alt="3星评价" /></p>
+        </div>
+        <div class="clear"></div>
+      </li>
+            <li class="mar_top">
+        <div class="cc_fav_list_1"><a href="book_detail.php?bookid=9690" title="杀手猫日记"><img src="upload/book/201801/1514876026842006902.jpg" alt="杀手猫日记"  width="100" height="136"/></a></div>
+        <div class="cc_fav_list_2">
+          <h2>&nbsp;&nbsp;在读<a href="book_detail.php?bookid=9690" >《杀手猫日记》</a></h2>
+          <h3><a href="javascript:void(0);" onclick="javascript:showBox('frame_fav'); xajax_editFavBook(24422, 1);">修改</a>&nbsp;<a href="#" onclick="if(rRDelsure('你确定要删除吗？')){window.location.href='my_favourites.php?goto=removefav&page=1&readstate=0&fbid=24422';}">删除</a></h3>
+          <div class="clear"></div>
+          <p>作者<a href="#">:[英] 安妮·范恩&nbsp;</a>&nbsp;出版社:<a href="#">接力出版社&nbsp;</a>&nbsp;出版时间：2017-06<br />
+            <span>塔菲是一只贪玩、贪吃又傲娇的猫。他讨厌被人评论“可爱”，觉得这是对自己的侮辱；他讨厌被人搂搂抱抱，这会让他喘不过气；他对...</span><br />
+            <span>09-08 15:04</span>&nbsp;<img src="images/common/star_3.gif" title="3星评价" alt="3星评价" /></p>
+        </div>
+        <div class="clear"></div>
+      </li>
+            <li class="mar_top">
+        <div class="cc_fav_list_1"><a href="book_detail.php?bookid=9533" title="它们是怎么长出来的？"><img src="upload/book/201703/1490152663048354680.jpg" alt="它们是怎么长出来的？"  width="100" height="136"/></a></div>
+        <div class="cc_fav_list_2">
+          <h2>&nbsp;&nbsp;在读<a href="book_detail.php?bookid=9533" >《它们是怎么长出来的？》</a></h2>
+          <h3><a href="javascript:void(0);" onclick="javascript:showBox('frame_fav'); xajax_editFavBook(24421, 1);">修改</a>&nbsp;<a href="#" onclick="if(rRDelsure('你确定要删除吗？')){window.location.href='my_favourites.php?goto=removefav&page=1&readstate=0&fbid=24421';}">删除</a></h3>
+          <div class="clear"></div>
+          <p>作者<a href="#">:热尔达·穆雷&nbsp;</a>&nbsp;出版社:<a href="#">２１世纪出版社&nbsp;</a>&nbsp;出版时间：2016-04<br />
+            <span>苏菲住在大城市里，每到假期，她都要去乡下的爷爷奶奶家。
+爷爷奶奶家有一个神奇的菜园，里面长着各种蔬菜。今年，她终于有机...</span><br />
+            <span>09-08 15:04</span>&nbsp;<img src="images/common/star_3.gif" title="3星评价" alt="3星评价" /></p>
+        </div>
+        <div class="clear"></div>
+      </li>
+            <li class="mar_top">
+        <div class="cc_fav_list_1"><a href="book_detail.php?bookid=9519" title="贝尔写给你的荒野求生少年生存百科：健康营养饮食"><img src="upload/book/201703/1489652405239813843.jpg" alt="贝尔写给你的荒野求生少年生存百科：健康营养饮食"  width="100" height="136"/></a></div>
+        <div class="cc_fav_list_2">
+          <h2>&nbsp;&nbsp;在读<a href="book_detail.php?bookid=9519" >《贝尔写给你的荒野求生少年生存百科：健康营养饮食》</a></h2>
+          <h3><a href="javascript:void(0);" onclick="javascript:showBox('frame_fav'); xajax_editFavBook(24420, 1);">修改</a>&nbsp;<a href="#" onclick="if(rRDelsure('你确定要删除吗？')){window.location.href='my_favourites.php?goto=removefav&page=1&readstate=0&fbid=24420';}">删除</a></h3>
+          <div class="clear"></div>
+          <p>作者<a href="#">:贝尔·格里尔斯 凯?万?贝尔斯姆 著&nbsp;</a>&nbsp;出版社:<a href="#">接力出版社&nbsp;</a>&nbsp;出版时间：2016-10<br />
+            <span>“贝尔写给你的荒野求生少年生存百科”是世界*野外生存大师贝尔•格里尔斯继“荒野求生少年生存小说系列”之后专为青少年创作的...</span><br />
+            <span>09-08 15:04</span>&nbsp;<img src="images/common/star_3.gif" title="3星评价" alt="3星评价" /></p>
+        </div>
+        <div class="clear"></div>
+      </li>
+            <li class="mar_top">
+        <div class="cc_fav_list_1"><a href="book_detail.php?bookid=4196" title="坟场之书"><img src="upload/book/201104/1303356562565786654.jpg" alt="坟场之书"  width="100" height="136"/></a></div>
+        <div class="cc_fav_list_2">
+          <h2>&nbsp;&nbsp;在读<a href="book_detail.php?bookid=4196" >《坟场之书》</a></h2>
+          <h3><a href="javascript:void(0);" onclick="javascript:showBox('frame_fav'); xajax_editFavBook(24419, 1);">修改</a>&nbsp;<a href="#" onclick="if(rRDelsure('你确定要删除吗？')){window.location.href='my_favourites.php?goto=removefav&page=1&readstate=0&fbid=24419';}">删除</a></h3>
+          <div class="clear"></div>
+          <p>作者<a href="#">:英] 尼尔·盖曼&nbsp;</a>&nbsp;出版社:<a href="#">四川科学技术出版社&nbsp;</a>&nbsp;出版时间：2010-03<br />
+            <span>一个婴儿。一座坟场。一次刺杀的结束，一个传奇的开始。在墓园里。有幽灵。有食尸鬼。还有神秘的守护者。连死神也亲自出马。（不...</span><br />
+            <span>09-08 15:03</span>&nbsp;<img src="images/common/star_3.gif" title="3星评价" alt="3星评价" /></p>
+        </div>
+        <div class="clear"></div>
+      </li>
+          </ul>
+    <div class="mar_top" id="pageStr"><span onClick='xajax_pageMyFavList(1)' style='cursor:hand;' title='go to page 1'><< </span>&nbsp;&nbsp;<b style='color:red;'>1</b>&nbsp;  <span onClick='xajax_pageMyFavList(2)' style='cursor:pointer;' title='go to page 2'>&nbsp;2&nbsp;</span> <input type='text' size='2' style='height: 16px; border:1px solid #E5E5E5;' onchange='xajax_pageMyFavList(this.value)'> <span onClick='xajax_pageMyFavList(2)' style='cursor:hand;' title='go to page 2'> >></span>&nbsp;&nbsp;页数: ( 1/2 共 12 条)</div>
+  </div>
+</div>
+<div class="loading_message" id="loadingMessage" style="display:none;"><p><b><b><b><img src="./images/common/xajax-loading.gif" alt="">  &nbsp;&nbsp;&nbsp;&nbsp;loading...</b></b></b></p></div>
+my_favourites left end-->    <!--my_favourites right begin-->
+
+
+<!--my_favourites end-->
+
+</ul>
+<div class="loading_message" id="loadingMessage" style="display:none;">
+    <p><b><b><b><img src="./images/common/xajax-loading.gif" alt="">  &nbsp;&nbsp;&nbsp;&nbsp;loading...</b></b>
+        </b>
+    </p>
+</div>
+  </div>
+</div>
+</div>
+
+</body>
+
+</html>

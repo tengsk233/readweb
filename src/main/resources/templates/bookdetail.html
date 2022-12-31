@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="北邮阅读" />
+    <title>北邮阅读网——《[[${book.book_name}]]》</title>
+    <link th:href="@{/css/common.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/thickbox.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/global.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/other.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/review.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/imstyle.css}" type="text/css" rel="stylesheet"  />
+    <link th:href="@{/css/styles.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{css/text.css}" rel="stylesheet" type="text/css" >
+    <link th:href="@{/css/comment.css}" rel="stylesheet" type="text/css" />
+
+    <script src="/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/js/comment.js"></script>
+    <!-- ueditor -->
+    <script type="text/javascript"
+            src="/js/shCore.js"></script>
+
+    <script>
+        function bookinfo_show(id)
+        {
+            links=new Image();
+            lang_bookinfo = 'lang_bookinfo_'+id;
+            short_bookinfo = 'short_bookinfo_'+id;
+            links='link_'+id;
+            show_hide=document.getElementById(lang_bookinfo).style.display;
+            if(show_hide=='none'){
+                document.getElementById(short_bookinfo).style.display="none";
+                document.getElementById(lang_bookinfo).style.display="block";
+            }else{
+                document.getElementById(lang_bookinfo).style.display="none";
+                document.getElementById(short_bookinfo).style.display="block";
+            }
+        }
+    </script>
+
+</head>
+<body style="background-color: #f0f8fd">
+<div  th:if="${session.user} eq null">
+    <div id="header1" class="ww clearfix">
+        <div id="sim_login" class="rr"><h1></h1><p class="yellow"><a th:href="@{/mainTologin}" class="thickbox yellow" title="登录">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a th:href="@{/mainTologin}" class="thickbox yellow" title="注册">注册</a></p><h2></h2></div>
+    </div>
+</div>
+<div id="header" class="ww clearfix" th:unless="${session.user} eq null">
+    <div id="sim_login1" class="rr"><h1></h1>
+        <p class="yellow">当前账户:<a href="" class="u_name">[[${session.user}]]</a>&nbsp;</p>
+        <h2></h2></div>
+</div>
+<div id="mainTop" class="ww">
+    <div id="login" class="ll block"><a th:href="@{/}" title="logo"><img src="./img/logo.png" alt="logo" /></a></div>
+    <div id="mainNav" class="ll f14">
+        <ul class="clearfix">
+            <li><a th:href="@{/}" class="black">首页</a></li>
+            <li><a th:href="@{/category_do(bookLabel='')}" class="black">图书</a></li>
+            <li><a th:href="@{/bookshelf_do(bookLabel='/')}" class="black">书架</a></li>
+        </ul>
+    </div>
+
+    <form id="form1" name="form1" method="get" th:action="@{/search_do}">搜书：
+        <label>
+            <input name="searchInfo" id="key" type="text">
+        </label>
+        <input type="submit" value="搜索">
+    </form>
+</div>
+<div id="subNav" class="wMax">
+    <div id="subNav_t"></div>
+    <div id="subNav_b" style="background-color: #3dd5f3">
+        <div class="ww clearfix">
+            <h1>图书</h1>
+        </div>
+    </div>
+</div>
+<!--navigator end-->
+<!--book_detail begin-->
+<div class="ww clearfix">
+    <!--book_detail left begin    -->
+    <script language="javascript" type="text/javascript" src="smarty/javascript/comment2.js"></script>
+
+    <div class="leftBox ll">
+        <div id="bookDetailInfo">
+            <div class="bookname">[[${book.book_name}]]</div>
+            <div class="wMax clearfix">
+                <div class="bookcover ll block"><img th:src="${book.img_url}" class="imgBook03 imgb" /><br />
+                    </div>
+                <div class="bookinfo rr">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="14%"  style="font-size:14px;line-height:30px; color:#3483a7">作者：</td>
+                            <td width="86%"  style="font-size:14px;line-height:30px"><a th:href="@{/search_do(searchInfo=${book.author})}">[[${book.author}]] </a></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px;line-height:30px; color:#3483a7">出版社：</td>
+                            <td style="font-size:14px;line-height:30px">[[${book.publishing_house}]]</td>
+                        </tr>
+
+                        <tr>
+                            <td style="font-size:14px;line-height:30px; color:#3483a7">ISBN：</td>
+                            <td style="font-size:14px;line-height:30px">[[${book.book_id}]]</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px;line-height:30px; color:#3483a7">发行日：</td>
+                            <td style="font-size:14px;line-height:30px">[[${book.year_of_publication}]]</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px;line-height:30px; color:#3483a7">评分：</td>
+                            <td style="font-size:14px;line-height:30px">[[${book.score}]]</td>
+                        </tr>
+                    </table>
+                    <p>
+                        <a th:href="@{/collect_do(bookID=${book.book_id})}"  style="font-size:14px;line-height:28px">  收藏</a><br/>
+                        <a th:href="@{/read(bookID=1000,OofC=0)}" style="font-size:14px;line-height:28px">阅读</a>
+                    </p>
+                </div>
+            </div>
+            <div class="bookintro">
+                <h1>图书简介</h1>
+                <blockquote>
+                    <div id="change_font_size_1">                 <div id="short_bookinfo_1">
+                        <p>
+                            <span class="goods-title"> [[${book.brief_introduction}]]</span>
+                            <a href="javascript:void(0)"  onclick="javascript:bookinfo_show(1);">显示全部</a></p>
+                    </div>
+                        <div id="lang_bookinfo_1" style="display:none">
+                            <p>   [[${book.brief_introduction}]]  <a href="javascript:void(0)"  onclick="javascript:bookinfo_show(1);">隐藏全部</a></p>
+                        </div>
+                    </div>
+                    <div id="book_detail_left_2" class="mar_top">
+                        <h1><span class="blue_14n">作者简介</span></h1>
+                        <div id="change_font_size_2">                 <div id="short_bookinfo_2">
+                            <p>
+                                <span class="goods-title"> [[${book.author_introduction}]]</span>
+                                <a href="javascript:void(0)"  onclick="javascript:bookinfo_show(2);">显示全部</a></p>
+                        </div>
+                            <div id="lang_bookinfo_2" style="display:none">
+                                <p>   [[${book.author_introduction}]]  <a href="javascript:void(0)"  onclick="javascript:bookinfo_show(2);">隐藏全部</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </blockquote>
+                <h1>相关标签</h1>
+                <blockquote>       <p>[[${book.label}]]</p>
+                </blockquote>
+            </div>
+            <div class="dibupinglun" style="margin-left:0;">
+
+                <div id="qq"  style="float: left";>
+                    <p>你要发表什么看法建议吗?欢迎评论</p>
+                    <div class="message"><textarea class="messageReal" style="padding: 8px;height: 68px;border: none;color: black;"></textarea></div>
+                    <div class="But">
+                        <img src="https://www.zjhuiwan.cn/images/images/bba_thumb.gif" class='bq' />
+                        <span class='submit'>发表</span>
+                        <!--face begin-->
+                        <div class="face">
+                            <ul>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/zjemogi.png" data="[/冒泡专用表情]" title="[冒泡专用表情]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/smilea_thumb.gif" data="[/呵呵]" title="[呵呵]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/tootha_thumb.gif" data="[/嘻嘻]" title="[嘻嘻]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/laugh.gif" data="[/哈哈]" title="[哈哈]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/tza_thumb.gif" data="[/可爱]" title="[可爱]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/kl_thumb.gif" data="[/可怜]" title="[可怜]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/kbsa_thumb.gif" data="[/挖鼻屎]" title="[挖鼻屎]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/cj_thumb.gif" data="[/吃惊]" title="[吃惊]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/shamea_thumb.gif" data="[/害羞]" title="[害羞]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/zy_thumb.gif" data="[/挤眼]" title="[挤眼]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/bz_thumb.gif" data="[/闭嘴]" title="[闭嘴]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/bs2_thumb.gif" data="[/鄙视]" title="[鄙视]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/lovea_thumb.gif" data="[/爱你]" title="[爱你]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/sada_thumb.gif" data="[/泪]" title="[泪]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/heia_thumb.gif" data="[/偷笑]" title="[偷笑]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/qq_thumb.gif" data="[/亲亲]" title="[亲亲]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/sb_thumb.gif" data="[/生病]" title="[生病]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/mb_thumb.gif" data="[/太开心]" title="[太开心]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/ldln_thumb.gif" data="[/懒得理你]" title="[懒得理你]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/yhh_thumb.gif" data="[/右哼哼]" title="[右哼哼]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/zhh_thumb.gif" data="[/左哼哼]" title="[左哼哼]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/x_thumb.gif" data="[/嘘]" title="[嘘]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/cry.gif" data="[/衰]" title="[衰]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/wq_thumb.gif" data="[/委屈]" title="[委屈]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/t_thumb.gif" data="[/吐]" title="[吐]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/k_thumb.gif" data="[/打哈气]" title="[打哈气]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/bba_thumb.gif" data="[/抱抱]" title="[抱抱]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/angrya_thumb.gif" data="[/怒]" title="[怒]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/yw_thumb.gif" data="[/疑问]" title="[疑问]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/cza_thumb.gif" data="[/馋嘴]" title="[馋嘴]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/88_thumb.gif" data="[/拜拜]" title="[拜拜]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/sk_thumb.gif" data="[/思考]" title="[思考]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/sweata_thumb.gif" data="[/汗]" title="[汗]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/sleepya_thumb.gif" data="[/困]" title="[困]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/sleepa_thumb.gif" data="[/睡觉]" title="[睡觉]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/money_thumb.gif" data="[/钱]" title="[钱]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/sw_thumb.gif" data="[/失望]" title="[失望]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/cool_thumb.gif" data="[/酷]" title="[酷]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/hsa_thumb.gif" data="[/花心]" title="[花心]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/hatea_thumb.gif" data="[/哼]" title="[哼]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/gza_thumb.gif" data="[/鼓掌]" title="[鼓掌]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/dizzya_thumb.gif" data="[/晕]" title="[晕]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/bs_thumb.gif" data="[/悲伤]" title="[悲伤]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/crazya_thumb.gif" data="[/抓狂]" title="[抓狂]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/h_thumb.gif" data="[/黑线]" title="[黑线]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/yx_thumb.gif" data="[/阴险]" title="[阴险]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/nm_thumb.gif" data="[/怒骂]" title="[怒骂]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/hearta_thumb.gif" data="[/心]" title="[心]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/unheart.gif" data="[/伤心]" title="[伤心]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/pig.gif" data="[/猪头]" title="[猪头]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/ok_thumb.gif" data="[/好的]"  title="[好的]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/ye_thumb.gif" data="[/耶]" title="[耶]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/good_thumb.gif" data="[/厉害]" title="[厉害]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/no_thumb.gif" data="[/不要]" title="[不要]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/z2_thumb.gif" data="[/赞]" title="[赞]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/come_thumb.gif" data="[/来]" title="[来]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/sad_thumb.gif" data="[/弱]" title="[弱]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/lazu_thumb.gif" data="[/蜡烛]" title="[蜡烛]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/clock_thumb.gif" data="[/钟]" title="[钟]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/cake.gif" data="[/蛋糕]" title="[蛋糕]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/m_thumb.gif" data="[/话筒]" title="[话筒]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/weijin_thumb.gif" data="[/围脖]" title="[围脖]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/lxhzhuanfa_thumb.gif" data="[/转发]" title="[转发]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/lxhluguo_thumb.gif" data="[/路过这儿]" title="[路过这儿]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/bofubianlian_thumb.gif" data="[/变脸]" title="[变脸]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/gbzkun_thumb.gif" data="[/困]" title="[困]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/boboshengmenqi_thumb.gif" data="[/生闷气]" title="[生闷气]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/chn_buyaoya_thumb.gif" data="[/不要啊]" title="[不要啊]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/daxiongleibenxiong_thumb.gif" data="[/泪奔]" title="[泪奔]"></li>
+                                <li><img src="https://www.zjhuiwan.cn/images/images/youqian_thumb.gif" data="[/有钱]" title="[有钱]"></li>
+                            </ul>
+                        </div>
+                        <!--face end-->
+                    </div>
+                    <div  class="bitian" style="height: 70px;margin: 10px auto;">
+                        <!--<input type="text" id="sumbitemail" style="font-size: 12px;height: 2rem;width: 260px;padding: 0 10px;border: 1px solid #ddd;" placeholder="必填 请填写你的邮箱">-->
+                        <input type="text" id="sumbitname" style="margin-left:12px;font-size: 12px;height: 2rem;width: 260px;padding: 0 10px;border: 1px solid #ddd;" placeholder="必填 请填写你的昵称">
+                        <!--<input type="text" id="sumbitblog" style="margin-top:10px;font-size: 12px;height: 2rem;width: 260px;padding: 0 10px;border: 1px solid #ddd;" placeholder="选填 请填写你的博客地址 带上http(s)">-->
+                    </div>
+                </div>
+                <!--qq end-->
+                <!--msgCon begin-->
+                <div class="msgCon" style="float: left">
+
+                </div>
+                <script type="text/javascript">
+                    //点击小图片，显示表情
+                    $(".bq").click(function (e) {
+                        $(".face").slideDown(); //慢慢向下展开
+                        e.stopPropagation(); //阻止冒泡事件
+                    });
+
+                    //在桌面任意地方点击，关闭表情框
+                    $(document).click(function () {
+                        $(".face").slideUp(); //慢慢向上收
+                    });
+
+                    //点击小图标时，添加功能
+                    $(".face ul li").click(function () {
+                        let simg = $(this).find("img").attr('data');
+                        let yval = $('.messageReal').val();
+                        $(".messageReal").val(yval+simg); //将表情添加到输入框
+                    });
+
+                    //点击发表按扭，发表内容
+                    $("span.submit").click(function () {
+                        var txt = $(".messageReal").val(); //获取输入框内容
+                        <!--var email = $("#sumbitemail").val();-->
+                        var name = $("#sumbitname").val();
+                        var blog = $("#sumbitblog").val();
+                        if(blog==""){
+                            blog="#";
+                        }
+                        var pageUrl = window.location.href;
+                        var articleTitle = $("#pagess").val();
+                        var articleId =$('#articleIdinit').val();
+                        var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
+                        if (txt=="" || txt==null || txt==undefined) {
+                            alert("请填写评论内容！");
+                            return;
+                        }
+                        /*if (email=="" || email==null || email==undefined) {
+                            alert("请填写邮箱！");
+                            return;
+                        }else if(!reg.test(email)){
+                            alert("请输入正确的邮箱!");
+                            return;
+                        }*/
+                        if (name=="" || name==null || name==undefined) {
+                            alert("请填写昵称！");
+                            return;
+                        }
+                        var json = '[{"title":"[/冒泡专用表情]","src":"https://www.zjhuiwan.cn/images/images/zjemogi.png"},{"title":"[/困]","src":"https://www.zjhuiwan.cn/images/images/gbzkun_thumb.gif"},{"title":"[/生闷气]","src":"https://www.zjhuiwan.cn/images/images/boboshengmenqi_thumb.gif"},{"title":"[/不要啊]","src":"https://www.zjhuiwan.cn/images/images/chn_buyaoya_thumb.gif"},{"title":"[/泪奔]","src":"https://www.zjhuiwan.cn/images/images/daxiongleibenxiong_thumb.gif"},{"title":"[/运气中]","src":"https://www.zjhuiwan.cn/images/images/cat_yunqizhong_thumb.gif"},{"title":"[/有钱]","src":"https://www.zjhuiwan.cn/images/images/youqian_thumb.gif"},{"title":"[/阴险]","src":"https://www.zjhuiwan.cn/images/images/yx_thumb.gif"},{"title":"[/怒骂]","src":"https://www.zjhuiwan.cn/images/images/nm_thumb.gif"},{"title":"[/心]","src":"https://www.zjhuiwan.cn/images/images/hearta_thumb.gif"},{"title":"[/伤心]","src":"https://www.zjhuiwan.cn/images/images/unheart.gif"},{"title":"[/猪头]","src":"https://www.zjhuiwan.cn/images/images/pig.gif"},{"title":"[/好的]","src":"https://www.zjhuiwan.cn/images/images/ok_thumb.gif"},{"title":"[/耶]","src":"https://www.zjhuiwan.cn/images/images/ye_thumb.gif"},{"title":"[/厉害]","src":"https://www.zjhuiwan.cn/images/images/good_thumb.gif"},{"title":"[/不要]","src":"https://www.zjhuiwan.cn/images/images/no_thumb.gif"},{"title":"[/赞]","src":"https://www.zjhuiwan.cn/images/images/z2_thumb.gif"},{"title":"[/来]","src":"https://www.zjhuiwan.cn/images/images/come_thumb.gif"},{"title":"[/弱]","src":"https://www.zjhuiwan.cn/images/images/sad_thumb.gif"},{"title":"[/蜡烛]","src":"https://www.zjhuiwan.cn/images/images/lazu_thumb.gif"},{"title":"[/钟]","src":"https://www.zjhuiwan.cn/images/images/clock_thumb.gif"},{"title":"[/蛋糕]","src":"https://www.zjhuiwan.cn/images/images/cake.gif"},{"title":"[/话筒]","src":"https://www.zjhuiwan.cn/images/images/m_thumb.gif"},{"title":"[/围脖]","src":"https://www.zjhuiwan.cn/images/images/weijin_thumb.gif"},{"title":"[/转发]","src":"https://www.zjhuiwan.cn/images/images/lxhzhuanfa_thumb.gif"},{"title":"[/路过这儿]","src":"https://www.zjhuiwan.cn/images/images/lxhluguo_thumb.gif"},{"title":"[/变脸]","src":"https://www.zjhuiwan.cn/images/images/bofubianlian_thumb.gif"},{"title":"[/吐]","src":"https://www.zjhuiwan.cn/images/images/t_thumb.gif"},{"title":"[/打哈气]","src":"https://www.zjhuiwan.cn/images/images/k_thumb.gif"},{"title":"[/抱抱]","src":"https://www.zjhuiwan.cn/images/images/bba_thumb.gif"},{"title":"[/怒]","src":"https://www.zjhuiwan.cn/images/images/angrya_thumb.gif"},{"title":"[/疑问]","src":"https://www.zjhuiwan.cn/images/images/yw_thumb.gif"},{"title":"[/馋嘴]","src":"https://www.zjhuiwan.cn/images/images/cza_thumb.gif"},{"title":"[/拜拜]","src":"https://www.zjhuiwan.cn/images/images/88_thumb.gif"},{"title":"[/思考]","src":"https://www.zjhuiwan.cn/images/images/sk_thumb.gif"},{"title":"[/汗]","src":"https://www.zjhuiwan.cn/images/images/sweata_thumb.gif"},{"title":"[/困]","src":"https://www.zjhuiwan.cn/images/images/sleepya_thumb.gif"},{"title":"[/睡觉]","src":"https://www.zjhuiwan.cn/images/images/sleepa_thumb.gif"},{"title":"[/钱]","src":"https://www.zjhuiwan.cn/images/images/money_thumb.gif"},{"title":"[/失望]","src":"https://www.zjhuiwan.cn/images/images/sw_thumb.gif"},{"title":"[/酷]","src":"https://www.zjhuiwan.cn/images/images/cool_thumb.gif"},{"title":"[/花心]","src":"https://www.zjhuiwan.cn/images/images/hsa_thumb.gif"},{"title":"[/哼]","src":"https://www.zjhuiwan.cn/images/images/hatea_thumb.gif"},{"title":"[/鼓掌]","src":"https://www.zjhuiwan.cn/images/images/gza_thumb.gif"},{"title":"[/晕]","src":"https://www.zjhuiwan.cn/images/images/dizzya_thumb.gif"},{"title":"[/悲伤]","src":"https://www.zjhuiwan.cn/images/images/bs_thumb.gif"},{"title":"[/抓狂]","src":"https://www.zjhuiwan.cn/images/images/crazya_thumb.gif"},{"title":"[/黑线]","src":"https://www.zjhuiwan.cn/images/images/h_thumb.gif"},{"title":"[/爱你]","src":"https://www.zjhuiwan.cn/images/images/lovea_thumb.gif"},{"title":"[/泪]","src":"https://www.zjhuiwan.cn/images/images/sada_thumb.gif"},{"title":"[/偷笑]","src":"https://www.zjhuiwan.cn/images/images/heia_thumb.gif"},{"title":"[/亲亲]","src":"https://www.zjhuiwan.cn/images/images/qq_thumb.gif"},{"title":"[/生病]","src":"https://www.zjhuiwan.cn/images/images/sb_thumb.gif"},{"title":"[/太开心]","src":"https://www.zjhuiwan.cn/images/images/mb_thumb.gif"},{"title":"[/懒得理你]","src":"https://www.zjhuiwan.cn/images/images/ldln_thumb.gif"},{"title":"[/右哼哼]","src":"https://www.zjhuiwan.cn/images/images/yhh_thumb.gif"},{"title":"[/左哼哼]","src":"https://www.zjhuiwan.cn/images/images/zhh_thumb.gif"},{"title":"[/嘘]","src":"https://www.zjhuiwan.cn/images/images/x_thumb.gif"},{"title":"[/衰]","src":"https://www.zjhuiwan.cn/images/images/cry.gif"},{"title":"[/委屈]","src":"https://www.zjhuiwan.cn/images/images/wq_thumb.gif"},{"title":"[/闭嘴]","src":"https://www.zjhuiwan.cn/images/images/zjemogi.gif"},{"title":"[/鄙视]","src":"https://www.zjhuiwan.cn/images/images/bs2_thumb.gif"},{"title":"[/闭嘴]","src":"https://www.zjhuiwan.cn/images/images/bz_thumb.gif"},{"title":"[/挤眼]","src":"https://www.zjhuiwan.cn/images/images/zy_thumb.gif"},{"title":"[/害羞]","src":"https://www.zjhuiwan.cn/images/images/shamea_thumb.gif"},{"title":"[/吃惊]","src":"https://www.zjhuiwan.cn/images/images/cj_thumb.gif"},{"title":"[/挖鼻屎]","src":"https://www.zjhuiwan.cn/images/images/kbsa_thumb.gif"},{"title":"[/可怜]","src":"https://www.zjhuiwan.cn/images/images/kl_thumb.gif"},{"title":"[/可爱]","src":"https://www.zjhuiwan.cn/images/images/tza_thumb.gif"},{"title":"[/哈哈]","src":"https://www.zjhuiwan.cn/images/images/laugh.gif"},{"title":"[/嘻嘻]","src":"https://www.zjhuiwan.cn/images/images/tootha_thumb.gif"},{"title":"[/呵呵]","src":"https://www.zjhuiwan.cn/images/images/smilea_thumb.gif"}]';
+                        json = eval('('+ json +')');
+                        var pattern1 = /\[\/[\u4e00-\u9fa5]+\]/g;
+                        var pattern2 = /\[\/[\u4e00-\u9fa5]+\]/;
+                        var contents = txt;
+                        var content = contents.match(pattern1);
+                        var str = contents;
+                        var src = "";
+                        console.log(articleId);
+                        if(content!=null){
+                            for(i=0;i<content.length;i++){
+                                for(j=0;j<json.length;j++){
+                                    if(json[j].title == content[i]){
+                                        src ="<img src='"+json[j].src+"'/>";
+                                        break;
+                                    }
+                                }
+                                str = str.replace(pattern2,src);
+                            }
+                        }
+
+
+                        txt = str;
+                        $.ajax({
+                            url : '/ajax',
+                            type : "post",
+                            data : {
+                                "content" : txt,
+                                "name" : name,
+                                "articleId" : [[${book.book_id}]],
+                            },
+                            dataType : "json",
+                            success : function(data) {
+                                if (name == data) {
+                                    alert(data);
+                                    $('.messageReal').val('') // 清空输入框
+
+                                    let str =
+                                        `<div class='msgBox' style="float:left;clear:left";>
+										<div class="headUrl">
+											<img src='https://www.zjhuiwan.cn//blogImg/otherImg/yktx.png' width='50' height='50'>
+											<div>
+												<span class="title">`+ name +`</a></span>
+												<span class="time">`+data.time+`</span>
+											</div>
+											<a class="reply">回复</a>
+										</div>
+										<div class='msgTxt '>
+											`+txt+`
+										</div>
+										<label style="margin-top: 12px;display: none;">
+										<br>
+										<input class="rename" type="text" size="15" style="font-size: 12px;height: 2rem;width: 133px;padding: 0 10px;border: 1px solid #ddd;"
+										   placeholder="输入你的昵称">
+										  <input class="redetail" type="text" size="30" style="font-size: 12px;height: 2rem;width: 340px;padding: 0 10px;border: 1px solid #ddd;"
+											placeholder="输入回复内容">
+											<div class="yseorno" style="float: right">
+												<a href="javascript:void(0)" style="color:white;width: 40px;font-size: 14px;background-color: green;padding: 2px 4px;" onclick="save(this,`+data.commentId+`)">确认</a>
+												<a class="closeReply" style="color:white;margin-left:10px;width: 40px;font-size: 14px;background-color: green;padding: 2px 4px;">取消</a>
+											</div>
+										</label>
+									</div>`;
+                                    $(".msgCon").prepend(str);
+                                    //点击“回复”显示回复框
+                                    $('.reply').on('click', function(event) {
+                                        $(this).parent().siblings('label').show();
+                                    });
+                                    //点击“取消”隐藏回复框
+                                    $('.closeReply').on('click', function(event) {
+                                        $(this).parents('label').hide();
+                                    });
+                                } else{
+
+                                    alert("系统异常，留言失败！");
+                                }
+                            },
+                        })
+
+                    });
+
+                    //点击“回复”显示回复框
+                    $('.reply').on('click', function(event) {
+                        $(this).parent().siblings('label').show();
+                    });
+                    //点击“取消”隐藏回复框
+                    $('.closeReply').on('click', function(event) {
+                        $(this).parents('label').hide();
+                    });
+
+                    //提交回复
+                    function save(obj, commentId) {
+                        var replyName = $(obj).parent().parent().find(".rename").val();
+                        var replyDetail = $(obj).parent().parent().find(".redetail").val();
+                        var pageUrl = window.location.href;
+                        var articleTitle = $("#pagess").val();
+                        console.log(replyName);
+                        console.log(replyDetail);
+                        if (replyName == "") {
+                            alert("请填写你的昵称！");
+                            return false;
+                        }
+                        if (replyDetail == "") {
+                            alert("请输入回复内容");
+                            return false;
+                        }
+                        $.ajax({
+                            type : "post",
+                            data : {
+                                "commentId" : commentId,
+                                "replyDetail" : replyDetail,
+                                "replyName" : replyName,
+                                "pageUrl" : pageUrl,
+                                "articleTitle":articleTitle
+                            },
+                            url :'/ajax',
+                            dataType : "json",
+                            success : function(data) {
+                                if (name == data) {
+                                    $(obj).parents('label').hide();
+                                    window.location.hash='pinglun';
+                                    location.reload(true);
+                                    $('.rename').val(replyName);
+                                } else {
+                                    alert("系统异常，回复失败！");
+                                }
+                            },
+                        })
+                    }
+                </script>
+            </div>
+        </div>
+
+        <!--     <div id="bookDetailReview">
+                  <div class="tit01 clearfix">
+                    <h1><a href="book_review.php?state=new&bookid=7693">书评</a></h1>
+                    <p><a href="book_review.php?state=new&bookid=7693">更多…</a></p>
+                  </div>
+                  <ul>
+                        <li>暂无书评</li>
+                      </ul>
+                  <div class="marTop20 ttr">
+                    <input type="button" name="read" id="read" value="发表书评" class="btn2" onclick=" return GB_showCenter('','/open_login.php?url=review_write.php?bookid=7693',366,576);"/>
+                  </div>
+                  <div id="mycc_new_sms" class="mar_top">
+                    <div class="tit01 clearfix">
+                      <h1><a href="book_review.php?state=new&bookid=7693">相关评论</a></h1>
+                    </div>
+                    <ul class="mar_top" >
+                            <li>暂无评论</li>
+                          </ul>
+                  </div>
+                  </div>-->
+
+    </div>
+    <!--book_detail left end-->	<!--book_detail right begin-->
+
+
+    <div class="rightBox rr">   <div id="bookReviewBuy">
+        <div class="tit01 clearfix">
+            <h1>购买这本书</h1>
+        </div>
+        <ul>
+            <li><a href="http://book.dangdang.com/"  title="去“当当网”购买该书" target="_blank">当当网</a></li>
+            <li><a href="https://s.taobao.com/search?spm=a21bo.21814703.201867-main.29.319b11d9wOgRkI&q=%E5%9B%BE%E4%B9%A6%E9%9F%B3%E5%83%8F"  title="去“淘宝”购买该书" target="_blank">淘宝</a></li>
+            <li><a href="https://book.jd.com/"  title="去“京东网”购买该书" target="_blank">京东网</a></li>
+        </ul>
+
+
+    <script>
+        function code(str)
+        {
+            window.open( "http://search.99read.com/search/index.aspx?book_search=book&main_str="+ escape(str) +"&searchKind=content");
+        }
+    </script>
+
+    <div id="right">  </div>
+    <!--book_detail right end--></div>
+<!--book_detail end-->
+
+
+<div class="loading_message" id="loadingMessage" style="display:none;">
+    <p><b><b><b><img src="./images/common/xajax-loading.gif" alt="">  &nbsp;&nbsp;&nbsp;&nbsp;loading...</b></b>
+    </b>
+    </p>
+</div>
+<script type="text/javascript">
+    $.ajax({
+        url : '/updateInnfoAjaxSpa',
+        type : 'post',
+        data : {
+            'id' :  $('#articleIdinit').val()
+        },
+        dataType : 'json',
+        success : function(data) {
+            if (data.msg == "success") {
+                $('#ajaxInfoClickSpan').html(data.accessNum);
+                $('#praise-txt').html(data.thumbsNum);
+                var vistorInfo = "";
+                var likeArticle = "";
+                var statusArticle = "";
+                var hotArticle = "";
+                var newArticle = "";
+                var commentList ="";
+
+                $.each(data.statusArticle,function(index,element){
+                    statusArticle+= '<li><a href="'+element.pageUrl +'" title="'+element.articleTitle+'" target="_blank">'+element.articleTitle+'</a></li>';
+                })
+                $('#statusArticle').html(statusArticle);
+
+                $.each(data.newArticle,function(index,element){
+                    newArticle+= '<li><a href="'+element.pageUrl +'" title="'+element.articleTitle+'" target="_blank">'+element.articleTitle+'</a></li>';
+                })
+                $('#newArticle').html(newArticle);
+
+                $.each(data.hotArticle,function(index,element){
+                    hotArticle+= '<li><a href="'+element.pageUrl +'" title="'+element.articleTitle+'" target="_blank">'+element.articleTitle+'</a></li>';
+                })
+                $('#hotArticle').html(hotArticle);
+
+                $.each(data.likeArticle,function(index,element){
+                    likeArticle+= '<li><a href="'+element.pageUrl +'" title="'+element.articleTitle+'" target="_blank">'+element.articleTitle+'</a></li>';
+                })
+                $('#likeArticle').html(likeArticle);
+
+                $.each(data.newVisitorCounterList,function(index,element){
+                    vistorInfo+= "<p>"+element.ip+" 用户在"+element.local+"访问了ZJBLOG</p>";
+                })
+                $('#vistorInfo').html(vistorInfo);
+
+                $.each(data.commentList,function(index,element){
+                    commentList+= `<div class='msgBox'>
+										<div class="headUrl">
+											<img src='https://www.zjhuiwan.cn//blogImg/otherImg/yktx.png' width='50' height='50'>
+											<div>
+												<span class="title"><a href="`+element.blog+`" target="_blank" style="cursor: pointer">`+ element.name +`</a></span>
+												<span class="time">`+element.articleTitle+`</span>
+											</div>
+											<a class="reply">回复</a>
+										</div>
+										<div class='msgTxt'>
+											`+element.content+`
+										</div>`;
+                    $.each(element.articleCommentReplyList,function(index,element2){
+                        commentList+=`<div class="msgTxt">&nbsp;&nbsp;&nbsp;<span style="color: green;">`
+                            +element2.replyName+`</span>&nbsp;<span>回复</span>&nbsp;<span style="color: green;">`
+                            +element.name+`</span>&nbsp;&nbsp;`
+                            +element2.commentId+`<div class="msgTxt" style="border-top: 1px dotted #ddd">`
+                            +element2.replyDetail+`</div></div>`
+                    })
+
+                    commentList+=	`<label style="margin-top: 12px;display: none;">
+<br>
+<input class="rename" type="text" size="15" style="font-size: 12px;height: 2rem;width: 133px;padding: 0 10px;border: 1px solid #ddd;"
+   placeholder="输入你的昵称">
+  <input class="redetail" type="text" size="30" style="font-size: 12px;height: 2rem;width: 340px;padding: 0 10px;border: 1px solid #ddd;"
+placeholder="输入回复内容">
+<div class="yseorno" style="float: right">
+<a href="javascript:void(0)" style="color:white;width: 40px;font-size: 14px;background-color: green;padding: 2px 4px;" onclick="save(this,`+element.id+`)">确认</a>
+<a class="closeReply" style="color:white;margin-left:10px;width: 40px;font-size: 14px;background-color: green;padding: 2px 4px;">取消</a>
+</div>
+</label></div>`;
+                })
+                $('.msgCon').prepend(commentList);
+
+
+
+                if(data.upArticle!="undefined" && data.upArticle!=null && data.upArticle!=""){
+                    $("#upArticle").html('上一篇：<a href="'+data.upArticle.pageUrl +'" target="_blank">'+data.upArticle.articleTitle+'</a>');
+                }
+                if(data.nextArticle!="undefined" && data.nextArticle!=null && data.nextArticle!=""){
+                    $("#nextArticle").html('下一篇：<a href="'+data.nextArticle.pageUrl +'" target="_blank">'+data.nextArticle.articleTitle+'</a>');
+                }
+                if(data.username!="undefined" && data.username != "" && data.username!=null){
+                    $("#logininfo").html('<div id="loginUser" class="loginUser"><div class="headimg"><img class="nav-user-photo" src="'+data.headUrl+'"></div><div class="welcometo"><small>Welcome To ZJBLOG</small></div><div class="username">'+data.username+'</div>');
+                }
+            }
+            //点击“回复”显示回复框
+            $('.reply').on('click', function(event) {
+                $(this).parent().siblings('label').show();
+            });
+            //点击“取消”隐藏回复框
+            $('.closeReply').on('click', function(event) {
+                $(this).parents('label').hide();
+            });
+
+        }
+
+    });
+    $(function() {
+        $(".infos img").click(function() {
+            var _this = $(this); //将当前的pimg元素作为_this传入函数
+
+            imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);
+        });
+    });
+
+    function imgShow(outerdiv, innerdiv, bigimg, _this) {
+        var src = _this.attr("src"); //获取当前点击的pimg元素中的src属性
+        $(bigimg).attr("src", src); //设置#bigimg元素的src属性
+
+        /*获取当前点击图片的真实大小，并显示弹出层及大图*/
+        $("<img/>").attr("src", src).load(function() {
+            var windowW = $(window).width(); //获取当前窗口宽度
+            var windowH = $(window).height(); //获取当前窗口高度
+            var realWidth = this.width; //获取图片真实宽度
+            var realHeight = this.height; //获取图片真实高度
+            var imgWidth,
+                imgHeight;
+            var scale = 0.8; //缩放尺寸，当图片真实宽度和高度大于窗口宽度和高度时进行缩放
+
+            if (realHeight > windowH * scale) { //判断图片高度
+                imgHeight = windowH * scale; //如大于窗口高度，图片高度进行缩放
+                imgWidth = imgHeight / realHeight * realWidth; //等比例缩放宽度
+                if (imgWidth > windowW * scale) { //如宽度扔大于窗口宽度
+                    imgWidth = windowW * scale; //再对宽度进行缩放
+                }
+            } else if (realWidth > windowW * scale) { //如图片高度合适，判断图片宽度
+                imgWidth = windowW * scale; //如大于窗口宽度，图片宽度进行缩放
+                imgHeight = imgWidth / realWidth * realHeight; //等比例缩放高度
+            } else { //如果图片真实高度和宽度都符合要求，高宽不变
+                imgWidth = realWidth;
+                imgHeight = realHeight;
+            }
+            $(bigimg).css("width", imgWidth); //以最终的宽度对图片缩放
+
+            var w = (windowW - imgWidth) / 2; //计算图片与窗口左边距
+            var h = (windowH - imgHeight) / 2; //计算图片与窗口上边距
+            $(innerdiv).css({
+                "top" : h,
+                "left" : w
+            }); //设置#innerdiv的top和left属性
+            $(outerdiv).fadeIn("fast"); //淡入显示#outerdiv及.pimg
+        });
+
+        $(outerdiv).click(function() { //再次点击淡出消失弹出层
+            $(this).fadeOut("fast");
+        });
+    }
+    /*鼠标特效 */
+    var a_idx = 0;
+    jQuery(document).ready(function($) {
+        $("body").click(function(e) {
+            var a = new Array("天真", "富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+            var $i = $("<span/>").text(a[a_idx]);
+            a_idx = (a_idx + 1) % a.length;
+            var x = e.pageX,
+                y = e.pageY;
+            $i.css({
+                "z-index" : 99999999,
+                "top" : y - 20,
+                "left" : x,
+                "position" : "absolute",
+                "font-weight" : "bold",
+                "color" : "Green"
+            });
+            $("body").append($i);
+            $i.animate({
+                    "top" : y - 180,
+                    "opacity" : 0
+                },
+                1500,
+                function() {
+                    $i.remove();
+                });
+        });
+    });
+
+    //弹出隐藏层
+    function ShowDiv(show_div, bg_div) {
+        document.getElementById(show_div).style.display = 'block';
+        document.getElementById(bg_div).style.display = 'block' ;
+        var bgdiv = document.getElementById(bg_div);
+        bgdiv.style.width = document.body.scrollWidth;
+        // bgdiv.style.height = $(document).height();
+        $("#" + bg_div).height($(document).height());
+    }
+
+    //关闭弹出层
+    function CloseDiv(show_div, bg_div) {
+        document.getElementById(show_div).style.display = 'none';
+        document.getElementById(bg_div).style.display = 'none';
+        document.getElementById("myform").reset();
+    }
+    $(document).keyup(function(event) {
+        if (event.keyCode == 13) {
+            $("#yesit").trigger("click");
+        }
+    });
+</script>
+</body>
+
+</html>

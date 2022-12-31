@@ -1,0 +1,183 @@
+@charset "utf-8";
+
+/*----- common CSS start -----*/
+body,div,p,span,font,form,ul,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,button,input,textarea,select,blockquote{margin:0; padding:0;}
+body{text-align:center;}
+body,td,input,textarea,select,button{font:12px/1.6em Verdana,Helvetica,Arial,sans-serif; line-height:120%;}
+input,select,button, form img{vertical-align:middle;}
+input[type=submit]{font-family:arial,Tahoma;}
+input[type=button]{font-family:arial,Tahoma;}
+button{font-family:arial,Tahoma;}
+input[type=submit]::-moz-focus-inner{border:none; padding:0;}
+input[type=button]::-moz-focus-inner{border:none; padding:0;}
+button::-moz-focus-inner{border:none; padding:0;}
+body,ul,li,dl,dd,p,h1,h2,h3,h4,h5,h6,form,fieldset{margin:0; padding:0;}
+button{border:0; cursor:pointer;}
+.mar_top{margin-top:20px}
+.mar_bottom{margin-bottom:20px}
+h1,h2,h3,h4,h5,h6{font-size:12px;}
+ul{list-style:none; margin:0 auto;}
+div{margin:0 auto;}
+img{border:0;}
+.clear{clear:both; background:none; border:0; display:block; float:none; font-size:0; list-style:none; margin:0; padding:0; overflow:hidden; visibility:hidden; width:0; height:0; line-height:0;}
+.clearfix:after{display:block; clear:both; content:"."; visibility:hidden; height:0;}
+.clearfix{display:inline-block;}
+/* Hides from IE-mac \*/
+* html .clearfix {height:1%;}
+.clearfix {display:block;}
+/* End hide from IE-mac */
+.wMax{width:100%;}
+.nn{font-weight:normal; line-height:80px; height:80px}
+.ll{float:left;}
+.rr{float:right;}
+.ttl{text-align:left;}
+.ttr{text-align:right;}
+.bb{font-weight:bold;}
+.lh{line-height:150%;}
+.f10{font-size:10px}
+.f11{font-size:11px}
+.f12{font-size:12px}
+.f13{font-size:13px}
+.f14{font-size:14px}
+.f16{font-size:16px}
+.f18{font-size:18px}
+.f20{font-size:20px}
+.f22{font-size:22px}
+.f24{font-size:24px}
+.f26{font-size:26px}
+.f28{font-size:28px}
+a.u_name:link, a.u_name:visited{color:#ff6600; text-decoration:none}
+a.u_name:hover, a.u_name:active{color:#ffffff; text-decoration:none; background:#ff6600}
+a.r_name:link, a.r_name:visited{color:#006699; text-decoration:none}
+a.r_name:hover, a.r_name:active{color:#ffffff; text-decoration:none; background:#006699}
+/*----- common CSS end -----*/
+/*----- 首页换肤css end -----*/
+#skin {
+    float:right;
+    margin:0px;
+    border:0px solid #fff;
+}
+#skin ul li {
+    list-style:none;
+    float:left;
+    height:15px;
+    width:15px;
+    text-indent:-9999px;
+    margin:0 2px;
+    overflow:hidden;
+    display:block;
+    background-image:url(/images/common/them1.gif)
+}
+#skin_0 {
+    background-position:0 0;
+}
+#skin_1 {
+    background-position:-15px 0;
+}
+#skin_2 {
+    background-position:-30px 0;
+}
+#skin_3 {
+    background-position:-45px 0;
+}
+#skin_0.selected {
+    background-position:0 15px;
+}
+#skin_1.selected {
+    background-position:-15px 15px;
+}
+#skin_2.selected {
+    background-position:-30px 15px;
+}
+#skin_3.selected {
+    background-position:-45px 15px;
+}
+/*----- base CSS start -----*/
+body{color:#666464; background:url(/images/common/body_header.gif) top center no-repeat;}
+.leftBox{width:600px;}
+.rightBox{width:358px;}
+.leftBox2{width:200px;}
+.rightBox2{width:758px;}
+.leftBox1{width:200px;}
+.rightBox1{width:400px;}
+
+.line01{background:url(../../../images/common/line03.gif) bottom repeat-x;}
+.marTop10{margin-top:10px;}
+.marTop20{margin-top:20px;}
+
+/* a, text */
+.cc_title{color: #3483a7 ; text-decoration:none}
+a:link, a:visited{color:#3483a7; text-decoration:none;}
+a:hover, a:active{color:#FF3300; text-decoration:underline;}
+a.black:link, a.black:visited{color:#666464; text-decoration:none;}
+a.black:hover, a.black:active{color:#FF3300; text-decoration:underline;}
+a.yellow:link, a.yellow:visited{color:#FF9600; text-decoration:none;}
+a.yellow:hover, a.yellow:active{color:#FF3300; text-decoration:underline;}
+a.green:link, a.green:visited{color:#87a824; text-decoration:none;}
+a.green:hover, a.green:active{color:#FF3300; text-decoration:underline;}
+a.red:link, a.red:visited{color:#F00; text-decoration:none;}
+a.red:hover, a.red:active{color:#FF3300; text-decoration:underline;}
+.yellow{color:#FF9600;}
+.red{color:#f00;}
+.block img{display:block;}
+
+/* title */
+.tit01{height:35px; background:url(../../../images/common/line02.gif) bottom repeat-x; padding-bottom:4px;}
+.titcc{height:35px; background:url(../../../images/common/line02.gif) bottom repeat-x; padding-bottom:20px;}
+.tit01 h1{width:79%; float:left; text-align:left; font-size:14px; color:#87a824; line-height:35px;}
+.tit01 p{width:20%; float:right; text-align:right; color:#666464; line-height:35px;}
+.tit01 h1 a:link, .tit01 h1 a:visited{color:#87a824; text-decoration:none;}
+.tit01 h1 a:hover, .tit01 h1 a:active{color:#FF3300; text-decoration:underline;}
+.tit01 p a:link, .tit01 p a:visited{color:#666464; text-decoration:none;}
+.tit01 p a:hover, .tit01 p a:active{color:#FF3300; text-decoration:underline;}
+a.cc_name:link, a.cc_name:visited{color:#006699; text-decoration:none}
+a.cc_name:hover, a.cc_name:active{color:#ffffff; text-decoration:none; background:#006699}
+a.ucc_name:link, a.ucc_name:visited{color:#ff6600; text-decoration:none}
+a.ucc_name:hover, a.ucc_name:active{color:#ffffff; text-decoration:none; background:#ff6600}
+/*我的cc-收藏-图书->图书标签*/
+#cc_random_tags{line-height:28px; text-align:left; font-size:14px}
+#cc_random_tags span{color:#999}
+
+
+/* button, input */
+.btn1{width:48px; height:24px; line-height:24px; border:none; color:#fff; cursor:pointer; background:url(../../../images/common//btn.png) top left;}
+.btn2{width:68px; height:24px; line-height:24px; border:none; color:#fff; cursor:pointer; background:url(../../../images/common//btn.png) left 49px;}
+.btn3{width:101px; height:24px; line-height:24px; border:none; color:#fff; cursor:pointer; background:url(../../../images/common//btn.png) left 24px;}
+.btn4{width:80px; height:24px; line-height:24px; border:none; color:#fff; cursor:pointer; background:url(../../../images/common//btn04.gif);}
+.btn5{width:68px; height:24px; line-height:24px; border:none; color:#fff; cursor:pointer; background:url(../../../images/common//btn05.gif);}
+.btn6{border:1px solid #cecbce; background:url(../../images/common//btn06.gif); height:26px; padding:0 8px 0 8px;}
+.btn6:hover{color:#1489bf; text-decoration:underline;}
+.btn6_on{border:1px solid #1489bf; background:#4fb3e1; color:#fff; height:26px; padding:0 8px 0 8px; font-weight:bold;}
+.btn7{border:1px solid #cecbce; background:url(../../images/common//btn07.gif) left top; height:26px; padding:0 8px 0 22px;}
+.btn7:hover{color:#1489bf; text-decoration:underline;}
+.btn8{border:1px solid #cecbce; background:url(../../images/common//btn07.gif) left 24px; height:26px; padding:0 8px 0 22px;}
+.btn8:hover{color:#1489bf; text-decoration:underline;}
+
+/* form */
+.qform input[type=text]{border:1px solid #eaeeef; line-height:28px; height:28px; font-size:14px;}
+.qform input[type=password]{border:1px solid #eaeeef; line-height:28px; height:28px; font-size:14px;}
+.qform textarea{border:1px solid #eaeeef; line-height:28px; height:28px; font-size:14px;}
+
+/* img */
+.imgb{border:1px solid #eee;}
+.imgAvator01{width:57px; height:57px;}
+.imgAvator02{width:75px; height:75px;}
+.imgAvator03{width:106px; height:106px;}
+.imgBook01{width:99px; height:124px;}
+.imgBook02{width:128px; height:166px;}
+.imgBook03{width:165px; height:215px;}
+.imgBook04{width:267px; height:380px;}
+.imgGroup01{width:57px; height:57px;}
+.imgGroup02{width:75px; height:75px;}
+.imgGroup03{width:106px; height:106px;}
+.imgOther01{width:150px; height:150px;}
+
+/* page */
+.pageStr{width:100%; clear:both; margin-top:20px;}
+.pageStr ul{float:right;}
+.pageStr li{float:left; width:24px; height:24px; line-height:24px; margin:0 2px 0 2px; overflow:auto; background:#f7fbfe; cursor:pointer;}
+.pageStr li:hover{border:1px solid #3483a7; color:#3483a7; font-weight:bold;}
+.pageStr_off{border:1px solid #ccc; color:#999;}
+.pageStr_on{border:1px solid #3483a7; color:#3483a7; font-weight:bold;}
+.pageStr h1{float:left; height:24px; padding:0 5px 0 5px; line-height:24px; margin:0 0 0 2px; overflow:auto; border:1px solid #ccc; background:#f7fbfe; color:#999; font-weight:normal;}
+/*----- base CSS end -----*/

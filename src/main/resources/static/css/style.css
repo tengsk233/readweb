@@ -1,0 +1,958 @@
+@charset "utf-8";
+/* CSS Document */
+
+.ww{width:990px;}
+#left{width:600px; float:left}
+.xz_line{background:url(../../images/common/line_01.gif) repeat-x bottom}
+#header{height:28px; padding:6px 0 2px 0; overflow:hidden;}
+#sim_login{width:auto; height:28px; line-height:28px; margin-right:40px;}
+#sim_login h1{width:10px; height:28px; background:url(../../../images/common/sim_login_bg.png) left top; float:left;}
+#sim_login p{width:auto; height:28px; background:#fff; float:left; padding:0 10px 0 10px;}
+#sim_login h2{width:10px; height:28px; background:url(../../../images/common/sim_login_bg.png) right top; float:left;}
+#mainTop{height:80px;}
+#mainTopLogo{width:176px; height:73px;}
+#mainNav{width:530px; line-height:16px; padding-left:40px; margin-top:15px;}
+#mainNav ul{}
+#mainNav li{float:left; padding:28px 12px 21px 12px;}
+
+#main{width:990px}
+#main_top{width:990px; clear:both}
+#main_top h1, #main_top p, #main_top h2, #main_top h3{width:100%; text-align:left}
+#main_top h2{margin-top:10px; font-size:20px; line-height:150%}
+#main_top h3{margin-top:10px; font-size:24px; line-height:150%}
+#main_top h3 span{color:#FFF; background:#FF6600; font-weight:bold; font-family:Arial, Helvetica, sans-serif}
+#main_top_nav{color:#CCC; line-height:20px; text-align:left}
+#main_top_nav a:link, #main_top_nav a:visited{color:#CCC; text-decoration:none}
+#main_top_nav a:hover, #main_top_nav a:active{color:#FFF; text-decoration:none; background:#999}
+
+.mainNav_on{background:url(../../../images/common/nav_bg01.jpg) top no-repeat;}
+.mainNav_off{background:none;}
+#mainSch{width:226px; height:26px; margin-top:33px;}
+#mainSch ul{width:59px; border:1px solid #CCC; background:#FEFEFE; z-index:3; position:absolute; left:604px; top:20px}
+#mainSch ul li{text-align:center}
+#mainSch input[type=text]{border-top:1px solid #dddddd; border-left:1px solid #dddddd; border-bottom:1px solid #dddddd; height:24px; line-height:24px; border-right:none; width:195px;}
+#mainSch input[type=submit]{width:30px; height:26px; background:url(../../../images/common/btn.png) left 76px; border:none; cursor:pointer;}
+#subNav{margin-bottom:20px;}
+#subNav_t{height:6px; background:url(../../../images/common/line01.gif);}
+#subNav_b{height:84px; background:#f0f8fd;}
+#subNav_b div{height:30px; padding-top:24px;}
+#subNav_b h1{float:left; line-height:30px; font-size:28px; font-family:MicroSoft YaHei,黑体; font-weight:normal; width:246px; text-align:left; color:#3483a7;}
+#subNav_b h3{float:left; line-height:30px; font-size:28px; font-family:MicroSoft YaHei,黑体; font-weight:normal; padding-right:20px; text-align:left; color:#3483a7;}
+#subNav_b h2{line-height:16px; padding-top:14px; float:left; text-align:left; font-weight:normal; font-size:14px;}
+#subNav_b p{line-height:14px; padding-top:16px; float:right; text-align:right;}
+
+/*----- 首页 -----*/
+#indexFocus{width:100%; height:258px;}
+#indexOnlineRead{margin-top:10px;}
+#indexOnlineReadFocus{margin-top:10px;}
+#indexOnlineReadFocus ul{margin-top:20px;}
+#indexOnlineReadFocus li{width:280px; float:left; padding-left:10px}
+#indexOnlineReadFocus h1{width:110px; height:151px;}
+#indexOnlineReadFocus p{width:160px; line-height:20px; text-align:left;}
+#indexOnlineReadFocus p a{line-height:24px;}
+#indexOnlineReadList{margin-top:20px; height:118px;}
+#indexOnlineReadList li{width:290px; float:left; text-align:left; line-height:26px; background:url(../../../images/common/arrow002.gif) left no-repeat; padding-left:10px;}
+#indexAd01{max-width:600px; padding-top:20px; border-top:1px solid #999;}
+#indexNewBooks{margin-top:20px;}
+#indexNewBooks ul{margin-top:20px;}
+#indexNewBooks li{width:150px; float:left;}
+#indexlinks{margin:20px;}
+#indexlinks ul{ padding:20px;}
+#indexlinks li{width:150px; float:left; margin-top:20px}
+#indexzj{margin-top:10px;}
+#indexzj ul{margin-top:10px;}
+#indexzj li{width:120px; float:left;}
+#indexActions{margin-top:20px;}
+#indexActionsLeft{width:590px;}
+#indexActionsLeft li{text-align:left; margin-top:20px;}
+#indexActionsLeft li h1{float:left; width:57px; height:57px; padding:5px 20px 0 0;}
+#indexActionsLeft li p{float:left; width:500px; line-height:20px;}
+#indexActionsRight{width:205px;}
+#indexActionsRight li{text-align:left; margin-top:25px;}
+#indexActionsRight li h1{float:left; width:75px; height:75px; padding-right:20px;}
+#indexActionsRight li p{float:left; width:110px; line-height:20px;}
+#indexLogin{width:326px; padding:16px 16px 0 16px; height:137px; border:1px solid #f2f2f2; background:#f7fbfe;}
+#indexLogin dl{font-size:14px; text-align:left;}
+#indexLogin dt{float:left; width:65px; height:30px; line-height:30px; padding:5px 0 5px 0; clear:left;}
+#indexLogin dd{float:left; width:260px; height:30px; padding:5px 0 5px 0;}
+#indexLogin dd input{border:1px solid #eaeeef; line-height:28px; height:28px; font-size:14px; width:258px;}
+#indexLogin h1{width:220px; text-align:left; height:24px; line-height:24px; margin-top:10px;}
+#indexLogin p{width:105px; text-align:right; height:24px; margin-top:10px;}
+#indexFindBooks{height:90px; margin-top:13px;}
+#indexFindBooks h1{width:211px; line-height:20px; padding-top:24px; text-align:left; float:left; font-size:14px;}
+#indexFindBooks p{width:147px; height:44px; float:right;}
+#indexFindBooks p button{height:44px; line-height:22px; font-size:14px; width:147px; background:url(../../../images/common/btn.png) 0 -24px; padding:15px 0 0 12px;}
+#indexFindBooks dl{margin-top:15px;}
+#indexFindBooks dt{width:25px; height:20px; padding-top:5px; float:left;}
+#indexFindBooks dd{width:64px; float:left; font-size:14px; font-family:Times, serif;}
+#indexPopular{margin-top:20px; height:519px;}
+#indexPopular ul{margin-bottom:35px;}
+#indexPopular li{text-align:left; margin-top:35px;}
+#indexPopular li h1{width:108px; float:left;}
+#indexPopular li h1 img{display:block; width:106px; height:106px; border:1px solid #eee;}
+#indexPopular li p{width:230px; float:right; line-height:20px;}
+#indexAd02{padding-top:20px; border-top:1px solid #999;}
+#indexAd02 img{max-width:358px;}
+#indexBooksDrift{margin-top:20px;}
+#indexBooksDriftBox{margin-top:20px}
+#indexBooksDriftBox h1{width:152px; float:left; line-height:30px;}
+#indexBooksDriftBox ul{width:186px; float:right;}
+#indexBooksDriftBox li{text-align:left; background:url(../../images/common/line03.gif) bottom repeat-x; line-height:20px; margin-bottom:5px; padding-bottom:5px;}
+#indexReadNews{margin-top:10px;}
+#indexReadNews ul{margin-top:10px;}
+#indexReadNews li{text-align:left; line-height:26px; background:url(../../../images/common/arrow002.gif) left no-repeat; padding-left:10px;}
+/*注册会员->左侧*/
+#add_mem ul li{margin-top:15px}
+#add_mem ul li h2{width:120px; font-size:14px; font-weight:normal; float:left; line-height:20px; text-align:left; color:#336699}
+#add_mem ul li p{width:308px; font-size:14px; float:left; text-align:left; line-height:20px}
+#add_mem ul li p a{font-size:12px}
+#add_mem ul li span{width:30px; float:right; font-size:14px; color:#FF6600; line-height:20px; text-align:left}
+.input_mem{height:21px; font-size:13px; line-height:20px; border-top:1px solid #d9dbdc; border-left:1px solid #d9dbdc; border-right:1px solid #d9dbdc; border-bottom:1px solid #d9dbdc}
+.userinfo_1{float:left; width:62px; text-align:right; height:16px}
+.userinfo_2{float:left; height:16px; white-space:nowrap; overflow:hidden}
+.userinfo_2 a:link,.userinfo_2 a:visited{color:#444; text-decoration:none}
+.userinfo_2 a:hover,.userinfo_2 a:active{color:#0066FF; text-decoration:none}
+.userinfo_3{float:left; height:16px}
+
+/*消息弹出*/
+a.remind_1:link,a.remind_1:visited{color:#FFCCCC; font-weight:bold; text-decoration:none; line-height:25px}
+a.remind_1:hover,a.remind_1:active{color:#FFCCCC; font-weight:bold; text-decoration:none; line-height:25px}
+a.remind_2:link,a.remind_2:visited{color:#F30; font-weight:bold; text-decoration:none; line-height:25px}
+a.remind_2:hover,a.remind_2:active{color:#F30; font-weight:bold; text-decoration:none; line-height:25px}
+a.openframe:link,a.openframe:visited{color:#CC0000; text-decoration:underline}
+a.openframe:hover,a.openframe:active{color:#0099FF; text-decoration:underline}
+/*----- 书评 -----*/
+#reviewHotList{margin-top:20px;}
+#reviewNewList, #reviewFriendList{margin-top:20px;}
+#reviewAd01{padding-top:20px; border-top:1px solid #999;}
+#reviewAd01 img{max-width:358px; height:128px;}
+#reviewAdd{}
+#reviewAdd #reviewAddTitle{font-size:26px; line-height:40px; height:40px; font-family:MicroSoft YaHei,黑体; text-align:left;}
+#reviewAdd dl{margin-top:20px;}
+#reviewAdd dt{float:left; width:12%; line-height:30px; text-align:left; font-size:14px; clear:left; margin-bottom:20px;}
+#reviewAdd dd{float:left; width:88%; font-size:14px; text-align:left; margin-bottom:20px;}
+#reviewAdd dd input[type=text]{width:100%;}
+#reviewAdd dd textarea{width:100%; height:300px;}
+#reviewAdd dd span{font-size:24px; line-height:30px; color:#f39801;}
+#reviewAdd dd p{height:24px; font-size:12px; float:left; width:259px;}
+#reviewAdd dd h1{float:left;}
+#reviewAdd .bookname{font-size:26px; line-height:40px; height:40px; font-family:MicroSoft YaHei,黑体; float:left}
+#reviewAdd dd h2{float:left; padding:3px 0 0 5px;}
+#reviewDetail_t{margin-top:20px;}
+#reviewDetail_t h1{float:left; width:77px;}
+#reviewDetail_t h2{float:left; margin-left:20px; overflow:auto; text-align:left; line-height:30px; font-size:14px; font-weight:normal;}
+#reviewDetail_t h2 span{font-size:12px; color:#ccc;}
+#reviewDetail_t p{float:right; line-height:30px;}
+#reviewDetail_t p span{font-size:24px; color:#f39801; font-weight:bold;}
+#reviewDetail{margin-top:20px;}
+#reviewDetail blockquote{font-size:14px; text-align:left; line-height:170%;}
+#reviewDetail p{margin:5px auto;}
+#reviewDetailReplyList{margin-top:20px;}
+#reviewDetailReplyList table{}
+#reviewDetailReplyList table td{text-align:left; padding:20px 0 20px 0;}
+#reviewDetailReplyList table tr{background:url(../../images/common/line03.gif) bottom repeat-x;}
+#reviewDetailReplyList .rdr_a h1{font-size:14px; line-height:30px; float:left; font-weight:normal;}
+#reviewDetailReplyList .rdr_a h2{line-height:30px; float:right; color:#ccc; font-weight:normal;}
+#reviewDetailReplyList .rdr_a blockquote{line-height:20px;}
+#reviewDetailReplyList .rdr_a blockquote p{margin:5px auto;}
+#reviewDetailReply{margin-top:40px;}
+#reviewDetailReply textarea{width:100%; height:80px;}
+#reviewDetailReply p{margin-top:20px; text-align:left;}
+#reviewMoreList{margin-top:20px;}
+#reviewMoreList ul{}
+#reviewMoreList li{margin-top:20px; padding-bottom:20px;}
+#reviewMoreList li h1{float:left; line-height:24px; text-align:left; font-weight:normal;}
+#reviewMoreList li h2{float:right; line-height:24px; text-align:rigt; font-weight:normal;}
+#reviewMoreList li h2 span{color:#f39801;}
+#reviewMoreList li h3{line-height:24px; text-align:right; font-weight:normal; color:#ccc;}
+#reviewMoreList li p{text-align:left; line-height:20px;}
+#reviewDetailTitle{font-size:26px; line-height:40px; height:40px; font-family:MicroSoft YaHei,黑体; text-align:left;}
+
+.leftReviewList ul{width:100%;}
+.leftReviewList li{width:100%; height:168px; padding:20px 0 20px 0;}
+.leftReviewList li .r_a{width:130px;}
+.leftReviewList li .r_b{width:450px;}
+.leftReviewList li .r_b .r_b_top{border-bottom:1px solid #ddd;}
+.leftReviewList li .r_b h1{float:left; text-align:left; line-height:29px; font-size:16px; font-weight:normal;}
+.leftReviewList li .r_b span{float:right; text-align:right; line-height:29px; font-size:14px; color:#f39801;}
+.leftReviewList li .r_b h2{float:left; text-align:left; line-height:24px; font-weight:normal;}
+.leftReviewList li .r_b h3{float:right; line-height:24px; text-align:right; font-weight:normal; color:#ccc;}
+.leftReviewList li .r_b p{line-height:20px; text-align:left; margin-top:8px;}
+.rightReviewList ul{width:100%;}
+.rightReviewList li{width:100%; height:168px; padding:20px 0 20px 0;}
+.rightReviewList li h1{line-height:30px; font-size:14px; text-align:left; font-weight:normal; background:url(../../../images/common/arrow002.gif) left no-repeat; padding-left:10px;}
+.rightReviewList li h2{float:left; line-height:24px; text-align:left; font-weight:normal;}
+.rightReviewList li h3{float:right; line-height:24px; text-align:right; color:#ccc; font-weight:normal;}
+.rightReviewList li p{text-align:left; line-height:20px; margin-top:8px;}
+
+/*----- 图书 -----*/
+#bookNewList{}
+#bookAd01{margin-top:30px; border-top:1px solid #999; padding-top:20px;}
+#bookAd01 img{display:block;}
+#bookHotList{margin-top:20px;}
+#bookHotList ul{}
+#bookHotList li{width:280px; float:left; padding:30px 10px 30px 10px;}
+#bookHotList li .b_a{line-height:30px; font-size:16px; text-align:left;}
+#bookHotList li .b_b h1{width:130px; float:left;}
+#bookHotList li .b_b p{width:140px; float:right; line-height:20px; text-align:left;}
+#bookTagsList{margin-top:20px}
+#bookTagsList ul{margin:20px auto;}
+#bookTagsList li{float:left; line-height:30px; height:30px; font-size:14px; padding:0 10px 0 0; word-break:keep-all; white-space:nowrap; overflow:hidden;}
+#bookFriendList{margin-top:20px;}
+#bookFriendList ul{}
+#bookFriendList li{text-align:left; margin-top:20px;}
+#bookFriendList li h1{float:left; line-height:30px; font-weight:normal;}
+#bookFriendList li h2{float:right; line-height:30px; color:#ccc; text-align:right; font-weight:normal;}
+#bookFriendList li p{line-height:20px; clear:left;}
+#tagsList{}
+#tagsList ul{}
+#tagsList li{float:left; font-size:14px; text-align:left; width:150px; height:20px; line-height:20px; word-break:keep-all; white-space:nowrap; overflow:hidden; margin-top:20px;}
+#tagsList li span{color:#ccc;}
+#tagsHelpList{margin-top:20px;}
+#tagsHelpList ul{}
+#tagsHelpList li{margin-top:10px; text-align:left;}
+#tagsHelpList li h1{font-size:14px; color:#3483a7; font-weight:normal; line-height:30px;}
+#tagsHelpList li p{line-height:20px;}
+#booknewFocus{}
+#booknewFocus ul{}
+#booknewFocus li{width:200px; float:left;}
+#booknewBookList{margin-top:20px;}
+#bookDetailInfo{text-align:left;}
+#bookDetailInfo .bookname{font-size:26px; line-height:35px; height:55px; font-family:MicroSoft YaHei,黑体;}
+#bookDetailInfo .bookcover{width:167px; margin-top:20px;}
+#bookDetailInfo .bookinfo{width:413px; margin-top:20px;}
+#bookDetailInfo .bookinfo dl{margin-top:20px; font-size:14px;}
+#bookDetailInfo .bookinfo dt{width:80px; float:left; height:30px; line-height:30px; clear:left; color:#3483a7;}
+#bookDetailInfo .bookinfo dd{float:left; height:30px; line-height:30px; padding-left:10px;}
+#bookDetailInfo .bookinfo p{margin-top:10px;}
+#bookDetailInfo .bookstar #star{height:25px; padding:8px 0 7px 0; text-align:left;}
+#bookDetailInfo .bookstar h1{line-height:40px; font-size:30px; color:#f39801; text-align:left;}
+#bookDetailInfo .bookintro{margin-top:20px;}
+#bookDetailInfo .bookintro h1{line-height:40px; font-size:16px; text-align:left; font-weight:normal; color:#3483a7;}
+#bookDetailInfo .bookintro p{line-height:24px; text-align:left; font-size:14px; margin:5px auto;}
+#bookDetailInfo .bookread{}
+#bookDetailInfo .bookread li{line-height:24px; height:24px; text-align:left; float:left; width:190px; background:url(../../images/common/arrow02.gif) left no-repeat; padding-left:10px; word-break:keep-all; white-space:nowrap; overflow:hidden;}
+#bookDetailReview{margin-top:20px;}
+#bookDetailReview_t{height:30px; line-height:30px; text-align:left;}
+#bookDetailReview_t .a_on{padding:3px 10px 3px 10px; background:#4fb3e1; text-decoration:none;}
+#bookDetailReview_t .a_on:link, #bookDetailReview_t .a_on:visited{color:#fff;}
+#bookDetailReview_t .a_on:hover, #bookDetailReview_t .a_on:active{color:#FF0;}
+#bookDetailReview ul{}
+#bookDetailReview li{margin-top:20px;}
+#bookDetailReview li .bdr_a{width:77px; position:relative; padding-top:10px;}
+#bookDetailReview li .bdr_a div{line-height:30px; position:absolute; z-index:100; left:60px; top:-5px; color:#f39801; font-size:22px;}
+#bookDetailReview li .bdr_b{width:493px; text-align:left;}
+#bookDetailReview li .bdr_b h1{line-height:30px; font-size:14px; font-weight:normal;}
+#bookDetailReview li .bdr_b h2{float:left; line-height:20px; font-weight:normal;}
+#bookDetailReview li .bdr_b h3{float:right; line-height:20px; text-align:right; color:#ccc; font-weight:normal;}
+#bookDetailReview li .bdr_b p{line-height:20px;}
+#bookReviewBuy{}
+#bookReviewBuy ul{margin-top:10px;}
+#bookReviewBuy li{line-height:24px; text-align:left;}
+#bookReviewTheme{margin-top:20px;}
+#bookReviewTheme ul{margin-top:10px;}
+#bookReviewTheme li{line-height:24px; text-align:left;}
+#bookReviewFava{margin-top:20px;}
+#bookReviewRelation{margin-top:20px;}
+#bookReviewRelation ul{margin-top:20px;}
+#bookReviewRelation li{float:left; width:119px; line-height:24px; height:170px;}
+#bookDetailReviewList{}
+#bookDetailReviewListBookInfo{}
+#bookDetailReviewListBookInfo h1{text-align:left; line-height:30px; font-size:16px; font-weight:normal;}
+#bookDetailReviewListBookInfo dl{font-size:14px; line-height:24px; text-align:left; margin-top:20px;}
+#bookDetailReviewListBookInfo dt{color:#3483a7; width:100px; float:left; clear:left;}
+.leftBookList{margin:0 auto;}
+.leftBookList li{width:150px; float:left; margin-top:25px; line-height:30px; height:168px;}
+.leftBookList2{}
+.leftBookList2 li{margin-top:20px; padding-bottom:20px;}
+.leftBookList2 li .b_c{width:130px;}
+.leftBookList2 li .b_d{width:450px; text-align:left;}
+.leftBookList2 li .b_d h1{font-size:16px; font-weight:normal; line-height:30px; float:left;}
+.leftBookList2 li .b_d h2{font-weight:normal; line-height:30px; float:right; width:80px; color:#ccc; text-align:right;}
+.leftBookList2 li .b_d p{line-height:20px;}
+.leftBookList2 li .b_d p span{color:#999; line-height:30px;}
+.leftBookReviewList{}
+.leftBookReviewList li{margin-top:20px; padding-bottom:20px;}
+.leftBookReviewList li .bdr_a{width:77px; position:relative; padding-top:10px;}
+.leftBookReviewList li .bdr_a div{line-height:30px; position:absolute; z-index:100; left:60px; top:-5px; color:#f39801; font-size:22px;}
+.leftBookReviewList li .bdr_b{width:493px; text-align:left;}
+.leftBookReviewList li .bdr_b h1{line-height:30px; font-size:14px; font-weight:normal;}
+.leftBookReviewList li .bdr_b h2{float:left; line-height:20px; font-weight:normal;}
+.leftBookReviewList li .bdr_b h3{float:right; line-height:20px; text-align:right; color:#ccc; font-weight:normal;}
+.leftBookReviewList li .bdr_b p{line-height:20px;}
+.leftMemberList{margin-top:20px;}
+.leftMemberList li{width:120px; float:left; line-height:24px; height:122px;}
+.rightSearchBox{width:326px; padding:16px; border:1px solid #f2f2f2; background:#f7fbfe;}
+.rightSearchBox dl{font-size:14px; text-align:left;}
+.rightSearchBox dt{float:left; width:75px; height:30px; line-height:30px; padding:5px 0 5px 0; clear:left;}
+.rightSearchBox dd{float:left; width:250px; height:30px; padding:5px 0 5px 0;}
+.rightSearchBox dd input{border:1px solid #eaeeef; line-height:28px; height:28px; font-size:14px; width:248px;}
+.rightSearchBox h1{line-height:20px; font-size:14px; text-align:left; font-weight:normal;}
+.rightSearchBox p{text-align:right; height:24px; margin-top:10px;}
+.rightSubNav{width:100%;}
+.rightSubNav table{background:#f2f2f2;}
+.rightSubNav table td{height:40px; text-align:left; padding-left:10px; cursor:pointer;}
+.rightSubNav table td h1{font-weight:normal; padding-left:20px; line-height:20px; font-size:14px;}
+.rightSubNav_off{background:#f7fbfe; color:#666464;}
+.rightSubNav_off h1{background:url(../../../images/common/arrow05.png) left no-repeat;}
+.rightSubNav_on{background:#4fb3e1; color:#fff;}
+.rightSubNav_on h1{background:url(../../../images/common/arrow06.png) left no-repeat;}
+
+.volume_list{width:96%}
+.volume_list li{width:33%; text-align:left; float:left; height:24px; line-height:24px; white-space:nowrap; word-break:keep-all; overflow:hidden; text-overflow:ellipsis; }
+
+/*详细页相关评论*/
+#mycc_new_sms ul li{line-height:10px; white-space:nowrap; text-align:left}
+.new_sms_1{width:300px; float:left}
+.new_sms_2{width:200px; float:left}
+.new_sms_3{width:100px; float:right; text-align:right; color:#999}
+
+
+/*----- 在线阅读详细页文字 -----*/
+.article_content{font-size:14px; line-height:200%}
+
+
+/*修改图书->左侧*/
+#book_change ul li{margin-top:5px}
+#book_change ul li h2{width:100px; float:left; font-weight:normal; line-height:20px; text-align:left}
+#book_change ul h1{ font-size:14px; line-height:25px; text-align:left}
+#book_change ul li p{width:470px; float:right; text-align:left; line-height:20px}
+#book_change ul li p input{margin-bottom:5px}
+#book_change ul li p textarea{margin-bottom:5px}
+
+
+/*----- 阅读推广 -----*/
+#popularThemeList{margin-top:20px;}
+#popularLikeList{margin-top:20px;}
+#popularLikeList ul{}
+#popularLikeList li{text-align:left; margin-top:20px; padding-bottom:20px;}
+#popularLikeList li h1{font-size:14px; line-height:30px; font-weight:normal;}
+#popularLikeList li p{line-height:20px;}
+#popularAd01{padding-top:20px;}
+#popularAd01 img{max-width:358px; height:128px;}
+#popularNewsMoreList{}
+#popularNewsMoreList li{background:url(../../images/common/arrow02.gif) left no-repeat; padding-left:10px;}
+#popularThemeDetail{}
+#popularThemeDetail .ptd_title{font-size:26px; line-height:40px; height:40px; font-family:MicroSoft YaHei,黑体;}
+#popularThemeDetail .ptd_time{color:#ccc; line-height:30px;}
+#popularThemeDetail .ptd_summary{line-height:24px; text-align:left; font-size:14px; margin-top:20px; border:1px solid #f2f2f2; background:#f7fbfe; padding:10px; color:#3483a7;}
+#popularThemeDetail blockquote{text-align:left; font-size:14px; line-height:170%; margin-top:20px;}
+#popularThemeDetail blockquote h1{font-size:16px; line-height:40px; margin-bottom:20px;}
+#popularThemeDetail blockquote p{margin:5px auto;}
+#popularThemeDetail .ptd_books{margin-top:20px;}
+#popularThemeDetail .ptd_books tr{background:url(../../images/common/line03.gif) bottom repeat-x;}
+#popularThemeDetail .ptd_books td{text-align:left; padding:20px 0 20px 0;}
+#popularThemeDetail .ptd_books h1{line-height:30px; font-size:16px; font-weight:normal;}
+#popularThemeDetail .ptd_books p{line-height:24px; font-size:14px; margin:5px auto;}
+#popularThemeDetail .pld_summary{margin-top:20px; border:1px solid #f2f2f2; background:#f7fbfe; padding:10px;}
+#popularThemeDetail .pld_summary td{text-align:left;}
+#popularThemeDetail .pld_summary h1{font-size:14px; line-height:30px; color:#87a824;}
+#popularThemeDetail .pld_summary h1 a{font-weight:normal;}
+#popularThemeDetail .pld_summary p{line-height:24px; font-size:14px;}
+
+.leftPopularThemeList{}
+.leftPopularThemeList li{margin-top:30px; padding-bottom:30px;}
+.leftPopularThemeList li .p_a{width:108px; float:left;}
+.leftPopularThemeList li .p_b{width:472px; float:right; text-align:left;}
+.leftPopularThemeList li .p_b h1{font-size:16px; line-height:30px; font-weight:normal;}
+.leftPopularThemeList li .p_b p{line-height:20px;}
+.leftPopularLikeList{}
+.leftPopularLikeList li{margin-top:30px; padding-bottom:30px;}
+.leftPopularLikeList li .pl_a{width:77px; float:left;}
+.leftPopularLikeList li .pl_b{width:503px; float:right; text-align:left;}
+.leftPopularLikeList li .pl_b h1{float:left; font-size:16px; line-height:30px; font-weight:normal;}
+.leftPopularLikeList li .pl_b h2{float:right; line-height:30px; font-weight:normal; text-align:right;}
+.leftPopularLikeList li .pl_b p{line-height:20px;}
+.leftTitleList{margin-top:20px;}
+.leftTitleList li{line-height:30px;}
+.leftTitleList h1{float:left; text-align:left; font-weight:normal; font-size:14px; background:url(../../../images/common/arrow002.gif) left no-repeat; padding-left:10px;}
+.leftTitleList h2{float:right; text-align:left; font-weight:normal; font-size:14px; color:#ccc;}
+.leftNewsContent{}
+.leftNewsContent h1{font-size:26px; line-height:40px; font-family:MicroSoft YaHei,黑体; font-weight:normal;}
+.leftNewsContent h2{font-weight:normal; line-height:30px; margin-top:10px;}
+.leftNewsContent h2 span{color:#ccc;}
+.leftNewsContent blockquote{text-align:left; line-height:170%; font-size:14px; margin-top:20px;}
+.leftNewsContent blockquote p{margin:5px auto;}
+#right_read_list{width:100%}
+.read_l{width:100%}
+.read_title{width:100%; font-size:18px; line-height:150%; text-align:center; font-weight:bold; color:#069}
+.read_content{text-align:left; font-size:14px; line-height:150%}
+#right_read_list ul{width:100%; text-align:left}
+#right_read_list ul li{width:170px; height:200px; float:left; text-align:center}
+#right_read_list ul li img{margin-bottom:2px}
+#left_read{width:560px; float:left}
+#left_read img{max-width:560px}
+#left_read h1 img{max-width:560px}
+#left_read_poster img{max-width:560px}
+
+/*-----漂流------*/
+
+.right_pl_1{width:90px; float:left}
+.right_pl_2{width:420px; float:left;line-height:25px}
+.right_pl_2 span{color:#999; line-height:25px}
+.right_pl_3{width:58px; float:right; padding-left:20px; text-align:center}
+.pl_book_2{width:65px; height:85px}
+#left_pl{width:600px; float:left}
+#left_pl h3{margin-top:10px; font-size:22px; line-height:150%; float:left}
+#left_pl h3 span{color:#FFF; background:#FF6600; font-weight:bold; font-family:Arial, Helvetica, sans-serif}
+#right_pl{width:358px; float:right}
+#right_pl_book_info{width:100%}
+#right_pl_book_info h1{margin-bottom:10px}
+#right_pl_book_info ul{width:100%; float:right}
+#right_pl_book_info ul li{line-height:20px; text-align:left}
+#right_pl_book_info ul li span{color:#999}
+#list_type{width:100%}
+#list_type p{width:250px; float:left; line-height:26px}
+#list_type h2{width:200px; float:right; text-align:right; font-weight:normal}
+#drift_review_detail_top{width:100%; text-align:left}
+#drift_review_detail_top h1{clear:both}
+#drift_review_detail_top h2{width:70px; float:left}
+#drift_review_detail_top p{width:490px; float:right; line-height:20px}
+#drift_review_detail_top p span{color:#999}
+#drift_review_detail_content{line-height:20px; font-size:14px}
+#drift_review_detail_content p{text-indent:28px; margin-bottom:6px}
+#pl_nav{color: #369; line-height:20px; text-align:left;width:600px; float:left}
+#pl_nav a:link, #main_top_nav a:visited{color:#369; }
+#pl_nav h3{margin-top:10px; font-size:18px; line-height:150%; float:left}
+#pl_nav a:hover, #main_top_nav a:active{color:#F60; text-decoration: underline; }
+.drift_top_1{width:120px; float:left; text-align:left}
+.drift_top_2{width:440px; float:right; text-align:left; line-height:24px}
+.drift_top_2 span{color:#999}
+.drift_review_list_1{max-width:30px; padding-right:10px; width:15px; float:left; text-align:left; line-height:24px; font-size:14px; color:#999; font-weight:bold; font-family:Arial, Helvetica, sans-serif}
+.drift_review_list_2{width:355px; float:left; text-align:left; line-height:24px; font-size:12px}
+.drift_review_list_3{width:75px; float:left; text-align:left; line-height:24px; font-size:12px}
+.drift_review_list_4{width:90px; float:right; text-align:right; line-height:24px; font-size:12px; color:#999}
+#right_pl_member_list{width:100%}
+#right_pl_member_list ul{width:100%}
+#right_pl_member_list ul li{width:84px; height:88px; float:left}
+#right_pl_member_list ul li img{margin-bottom:2px}
+#left_pl_member_list{width:100%}
+#left_pl_member_list ul{width:100%}
+#left_pl_member_list ul li{width:112px; float:left; line-height:24px; margin-top:10px}
+
+#drift_news{font-size:14px; line-height:150%; text-align:left}
+#drift_news h1{color:#336699; margin:20px auto 5px auto; font-weight:normal; font-size:14px}
+#drift_news p{margin:5px auto; text-indent:28px}
+
+
+
+
+/*----------- 我的CC -----------*/
+#myReviewList{}
+#myReviewList.bookname{font-size:24px; line-height:40px; height:40px; font-family:MicroSoft YaHei,黑体; color: #069;}
+#myBookList{margin-top:20px}
+#myBookList h2{line-height:20px; text-align:left; font-weight:normal; margin-top:20px; font-size:14px;}
+#myBookList ul{margin:0 auto;}
+#myBookList li{width:150px; float:left; margin-top:10px; font-size:12px; line-height:25px}
+#mySmsList{margin-top:20px;}
+#mySmsList table{margin-top:20px;}
+#mySmsList table span{color:#ccc;}
+#myBroadcastList, #myRecommendList, #myDiaryList, #myDriftList{margin-top:20px;}
+#myBroadcastList ul, #myRecommendList ul, #myDiaryList ul, #myDriftList ul{margin-top:20px;}
+#myFriendsList{margin-top:20px;}
+#myFriendsList ul{}
+#myFriendsList li{width:89px; float:left; line-height:20px; margin-top:20px;}
+#myGroupsList{margin-top:20px;}
+#myAd01{padding-top:20px;}
+#myAd01 img{max-width:358px; height:128px;}
+.rightTitleList li{line-height:24px; text-align:left;}
+.rightTitleList li h1{text-align:left; float:left; font-weight:normal;}
+.rightTitleList li p{text-align:right; color:#ccc; width:102px; float:right;}
+.gotoWhere{background:#f7fbfe; text-align:left; line-height:24px; padding-left:10px; margin-top:20px; border:1px solid #f2f2f2;}
+
+#ccreview{text-align:left;}
+#ccreview .bookname{font-size:24px; line-height:40px; height:40px; font-family:MicroSoft YaHei,黑体; color: #069;}
+#ccreview li{text-align:left; margin-top:8px; padding-bottom:5px;}
+#ccreview ul{margin-top:5px}
+
+/*cc右侧及左侧列表页*/
+.cc_review_list_1{width:180px; float:left; text-align:left; line-height:20px}
+.cc_review_list_2{width:120px; float:left; text-align:left; line-height:20px}
+.cc_review_list_3{width:80px; float:left; text-align:left; color:#999; line-height:20px}
+.cc_review_list_4{width:78px; float:right; text-align:right; color:#999; line-height:20px}
+
+#diary_text_list{text-align:left; line-height:20px}
+#diary_text_list ul li{text-align:left; line-height:25px}
+#diary_text_list li p{text-align:left; font-size:12px; line-height:22px}
+
+#ccreply{text-align:left;}
+#ccreply .bookname{font-size:24px; line-height:40px; height:40px; font-family:MicroSoft YaHei,黑体; color: #069;}
+#ccreply li{text-align:left; margin-top:8px; padding-bottom:5px;}
+#ccreply ul{margin-top:5px}
+.cc_reply_list_1{width:276px; float:left; text-align:left; line-height:20px}
+.cc_reply_list_2{width:78px; float:right; text-align:right; color:#999; line-height:20px}
+
+/*cc留言本内容页->回复列表*/
+.cc_group_reply_list_1{width:80px; float:left; text-align:left}
+.cc_group_reply_list_2{width:510px; float:right; text-align:left; line-height:20px}
+.cc_group_reply_list_2 h2{width:342px; float:left; background:#F5F5F5; font-weight:normal}
+.cc_group_reply_list_2 span{width:168px; float:right; text-align:right; color:#999; background:#F5F5F5}
+.cc_group_reply_list_2 p{width:100%}
+#right_text_list{text-align:left; line-height:20px}
+#right_text_list ul li{text-align:left; line-height:20px}
+#right_text_list ul li span{color:#999}
+
+#cc_replay{text-align:left;}
+#cc_replay .bookname{font-size:24px; line-height:40px; height:40px; font-family:MicroSoft YaHei,黑体; color: #069;}
+
+
+#ccDetailInfo{text-align:left;}
+#ccDetailInfo .bookname{font-size:24px; line-height:40px; height:40px; font-family:MicroSoft YaHei,黑体; color: #069;}
+#ccDetailInfo .bookcover{width:167px; margin-top:20px;}
+#ccDetailInfo .bookinfo{width:413px; margin-top:20px;}
+#ccDetailInfo ul{margin-top:20px}
+#ccDetailInfo li{text-align:left; margin-top:20px; padding-bottom:20px;}
+#ccDetailInfo li h1{font-size:14px; line-height:30px; font-weight:blod;}
+#ccDetailInfo li p{line-height:20px;}
+#ccDetailInfo ul li{margin-top:20px; height:auto; padding-bottom:20px; background:url(../../../images/common/line_01.gif) repeat-x bottom; clear:both; text-align:left;}
+#cc_word{line-height:16px; clear:both; float:left}
+#cc_word img{display:block; float:left}
+.right_cc_list_1{width:60px; text-align:left; float:left}
+.right_cc_list_2{width:270px; text-align:left; float:right}
+.right_cc_list_2 span{color:#999}
+
+#leftcc_group_list{text-align:left;rightGroupList}
+#leftcc_group_list ul li{width:114px; height:100px; float:left; margin-top:20px; margin-bottom:10px}
+#leftcc_group_list .bookname{font-size:24px; line-height:40px; height:40px; font-family:MicroSoft YaHei,黑体; color: #069;}
+#leftcc_group_list ul li img{margin-bottom:2px}
+#leftcc_group_list ul li span{color:#999}
+
+/*cc主页->二级页导航*/
+#member_sec_nav_1{width:100px; float:left; text-align:left}
+#member_sec_nav_2{width:500px; float:right; text-align:right}
+#member_sec_nav_2 ul li{float:left; margin-right:10px}
+
+
+/*cc我的推荐->推荐列表*/
+.cc_recom_list_1{width:100%; line-height:25px}
+.cc_recom_list_1 h2{width:542px; float:left; text-align:left; font-weight:normal; background:#EEEEEE;}
+.cc_recom_list_1 span{width:58px; float:right; text-align:right; background:#EEEEEE}
+.cc_recom_list_2{width:100%; height:auto; margin:5px auto 0 auto}
+.cc_recom_list_2_1{width:390px; text-align:left; float:left;line-height:25px}
+.cc_recom_list_2_1 span{color:#999;}
+.cc_recom_list_2_2{width:68px; text-align:right; float:right}
+.cc_recom_list_3{width:100%; text-align:right}
+.cc_recom_list_4{width:390px; height:auto; text-align:left; float:right; clear:both; line-height:20px}
+.cc_recom_list_4 div{width:100%}
+.cc_recom_list_4 div h3{width:270px; float:left; font-weight:normal; background:#F5F5F5}
+.cc_recom_list_4 div span{width:120px; float:right; text-align:right; color:#999; background:#F5F5F5}
+.cc_recom_list_4 p{width:100%}
+/*cc短消息->左侧列表*/
+.cc_sms_list_1{width:30px; float:left; line-height:20px; text-align:left}
+.cc_sms_list_2{width:240px; float:left; line-height:20px; text-align:left}
+.cc_sms_list_3{width:80px; float:left; line-height:20px; text-align:left}
+.cc_sms_list_4{width:108px; float:right; text-align:right; color:#999; line-height:20px}
+.cc_sms_list_4 span{color:#444}
+
+/*cc我的收藏->左侧列表*/
+.cc_fav_list_1{width:120px; float:left}
+.cc_fav_list_2{width:480px; float:left; height:auto; line-height:20px}
+.cc_fav_list_2 h2{width:390px; float:left; background:#EEEEEE; line-height:25px; height:25px; font-weight:normal}
+.cc_fav_list_2 h3{width:90px; float:right; text-align:right; background:#EEEEEE; line-height:25px; font-weight:normal; height:25px}
+.cc_fav_list_2 p{width:100%;color:#999; height:auto; margin:5px auto 0 auto; line-height:30px; font-size:12px; line-height:25px}
+.cc_fav_list_2 p span{color:#000; line-height:25px}
+#more{width:100%; text-align:right; font-size:14px; line-height:20px; font-family:Verdana, Geneva, sans-serif}
+#more a:link,#more a:visited{color:#FF6600; text-decoration:none}
+#more a:hover,#more a:active{color:#FFFFFF; text-decoration:none; background:#FF6600}
+
+/*cc我的广播侧->两栏列表*/
+.right_cc_list_1{width:80px; text-align:left; float:left}
+.right_cc_list_2{width:260px; text-align:left; float:right}
+.right_cc_list_2 span{color:#999}
+
+/*cc修改个人资料->兴趣爱好复选框*/
+#checkbox_xx {float:left; height:auto; width:480px}
+#checkbox_xx div {float:left; width:155px; white-space:nowrap; overflow:hidden; text-align:left; line-height:25px; margin-top:0}
+
+/*会员主页->左侧推荐列表*/
+#member_left_01 ul li{line-height:20px}
+#member_left_01 ul li h2{width:370px; float:left; text-align:left; white-space:nowrap; overflow:hidden; font-weight:normal}
+#member_left_01 ul li span{width:88px; float:right; text-align:right; color:#999}
+
+
+/*我的日记内容页->回复列表*/
+.cc_diary_reply_list_1{width:60px; float:left; text-align:left}
+.cc_diary_reply_list_2{width:510px; float:right; text-align:left; line-height:20px}
+.cc_diary_reply_list_2 h2{width:280px; float:left; background:#F5F5F5; font-weight:normal}
+.cc_diary_reply_list_2 span{width:230px; float:right; text-align:right; color:#999; background:#F5F5F5}
+.cc_diary_reply_list_2 p{width:100%; line-height:25px; padding-top:5px; float:left}
+/*----------- 漂流 -------------*/
+#driftApplyList{}
+#driftApplyList ul{}
+#driftApplyList li{width:50%; float:left; margin-top:20px;}
+#driftApplyList li .d_a{width:130px; float:left;}
+#driftApplyList li .d_b{width:150px; float:right; text-align:left;}
+#driftApplyList li .d_b h1{font-size:14px; line-height:30px; font-weight:normal;}
+#driftApplyList li .d_b dl{line-height:20px;}
+#driftApplyList li .d_b dt{width:70px; float:left; clear:left;}
+#driftApplyList li .d_b dd{width:80px; float:right;}
+#driftApplyList li .d_b p{margin-top:10px;}
+#driftBookList{margin-top:20px;}
+#driftThemeList{margin-top:20px;}
+#driftThemeList ul{}
+#driftThemeList li{width:200px; float:left; margin-top:20px; line-height:30px; font-size:14px;}
+#driftApplyIntro{margin-top:20px;}
+#driftApplyIntro h2{line-height:20px; text-align:left; font-weight:normal; margin-top:20px;}
+#driftHotList{margin-top:20px;}
+#driftHotList ul{}
+#driftHotList li{margin-top:20px; padding-bottom:20px;}
+#driftHotList li h2{line-height:30px; float:left; text-align:left; font-weight:normal; font-size:14px; background:url(../../../images/common/arrow002.gif) left no-repeat; padding-left:10px;}
+#driftHotList li h3{float:right; width:59px; height:22px; line-height:22px; padding:4px 0 4px 0; background:url(../../../images/common/arrow04.gif) 0px no-repeat; color:#fff; font-weight:normal;}
+#driftHotList li p{line-height:30px; text-align:left;}
+
+.driftBook{margin-top:20px; padding-bottom:20px;}
+.driftBook .d_a{width:130px; float:left;}
+.driftBook .d_c{width:450px; float:right;}
+.driftBook .d_c div{border-bottom:1px solid #ddd;}
+.driftBook .d_c h1{float:left; font-weight:normal; font-size:16px; text-align:left; line-height:30px;}
+.driftBook .d_c h2{float:right; width:120px; text-align:right; line-height:30px; font-weight:normal; color:#ccc;}
+.driftBook .d_c p{line-height:30px; text-align:left;}
+.driftBook .d_c ul{}
+.driftBook .d_c li{width:90px; height:59px; float:left; text-align:left; margin-top:10px; background:url(../../images/common/arrow03.gif) 70px no-repeat;}
+
+/*----- 在线阅读 -----*/
+#readFocusList{}
+#readFocusList_l{width:269px; float:left;}
+#readFocusList_r{width:322px; float:right;}
+#readFocusList_r ul{}
+#readFocusList_r li{width:302px; height:117px; text-align:left; padding:5px 5px  5px 15px;}
+#readFocusList_r li h1{font-size:16px; line-height:30px; font-weight:normal;}
+#readFocusList_r li p{line-height:20px; margin-top:5px;}
+#readNewList{margin-top:20px;}
+#readMagzineList{margin-top:20px;}
+#readHistory{margin-top:20px;}
+#readHistory_t{line-height:30px; text-align:left; font-size:14px; padding:10px 0 10px 0;}
+#readHistory span{color:#f00;}
+#readHistory ul{margin-top:10px;}
+#readHistory li{line-height:24px;}
+#readHistory li h2{font-weight:normal; text-align:left; float:left;}
+#readHistory li p{text-align:right; float:right; width:42px; color:#ccc;}
+#readWeekRank, #readMonthRank{margin-top:20px;}
+#readPartner{margin-top:20px;}
+#readPartner ul{margin-top:10px;}
+#readPartner li{width:50%; float:left; text-align:left; line-height:24px; height:24px;}
+#readClassBox{border:1px solid #ccc; height:100px;}
+#ebookSubNav{width:100%;}
+#ebookSubNav table{background:#f2f2f2;}
+#ebookSubNav table td{height:50px; text-align:left; cursor:pointer; position:relative; display:block;}
+#ebookSubNav table td h1{line-height:50px; position:absolute; z-index:100; left:0; top:0; height:100%;}
+.ebookSubNav_on{background:url(../../images/common/ebook_menu_bg01.gif) right no-repeat; color:#fff; font-weight:bold;}
+.ebookSubNav_off{background:none; font-weight:normal;}
+.ebookSubNav1{background:#deeffb}
+.ebookSubNav1 h1{font-size:16px; color:#3483a7; width:198px; padding-left:20px;}
+.ebookSubNav2{background:#f7fbfe;}
+.ebookSubNav2 h1{font-size:14px; width:178px; padding-left:40px;}
+#ebookThirdNav{padding:20px; background:#f7fbfe; border:1px solid #f2f2f2; text-align:left;}
+#ebookThirdNav h1{width:110px; float:left; line-height:30px;}
+#ebookThirdNav ul{width:600px; float:right;}
+#ebookThirdNav li{margin:0 10px; line-height:30px; float:left; overflow:auto;}
+a.ebookThirdNavSelected{background:#3483a7; text-decoration:none; color:#fff;}
+.ebookHideNav{display:none;}
+#ebookBookList{margin-top:20px;}
+.ebookSort{border-top:2px solid #d1e2fd; background:#f7fbfe; height:40px;}
+.ebookSort h1{float:left; text-align:left; height:26px; margin-top:7px; line-height:26px; font-weight:normal; padding-left:20px;}
+.ebookSort h2{float:right; text-align:right; height:26px; margin-top:7px; line-height:26px; font-weight:normal; padding-right:20px;}
+#ebookPressNav{margin-top:40px;}
+#ebookPressNav ul{margin-top:10px; width:196px;}
+#ebookPressNav li{padding:6px 0 6px 0; text-align:left;}
+#ebookPressNav .arrow1{background:url(../../images/common/arrow02.gif) left no-repeat; padding-left:10px;}
+#ebookPressNav li img{width:194px; height:48px; display:block;}
+#ebookLeftHistory{margin-top:20px; border:1px solid #f2f2f2;}
+#ebookLeftHistory_t{border-bottom:1px solid #f2f2f2; height:30px; background:#fefef2;}
+#ebookLeftHistory_t h1{float:left; padding-left:5px; line-height:30px; text-align:left; font-size:14px; color:#87a824;}
+#ebookLeftHistory_t p{float:right; padding-right:5px; line-height:30px; text-align:right;}
+#ebookLeftHistory h2{line-height:24px; text-align:left; font-weight:normal; padding:10px 0 5px 0; margin:0 5px 0 5px;}
+#ebookLeftHistory ul{margin:10px 5px;}
+#ebookLeftHistory li{line-height:24px;}
+#ebookLeftHistory li h1{text-align:left; float:left; font-weight:normal; display:block; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; width:140px;}
+#ebookLeftHistory li p{text-align:right; float:right; color:#ccc;}
+#ebookBookDetail{}
+#ebookBookDetail .bookname{font-size:26px; line-height:40px; height:40px; font-family:MicroSoft YaHei,黑体; text-align:left}
+#ebookBookDetail .bookcover{width:167px; margin-top:20px;}
+#ebookBookDetail .bookinfo{margin:20px 0 0 20px; text-align:left;}
+#ebookBookDetail .bookinfo dl{font-size:14px;}
+#ebookBookDetail .bookinfo dt{width:80px; float:left; height:30px; line-height:30px; clear:left; color:#3483a7;}
+#ebookBookDetail .bookinfo dd{float:left; line-height:30px; padding-left:10px;}
+#ebookBookDetail .bookinfo p{width:571px; margin-top:10px; text-align:left; font-size:14px; line-height:24px;}
+#ebookBookDetail .bookstar #star{height:25px; padding:8px 0 7px 0; text-align:left;}
+#ebookBookDetail .bookstar h1{line-height:40px; font-size:30px; color:#f39801; text-align:left;}
+#ebookBookDetail .bookintro{margin-top:20px;}
+#ebookBookDetail .bookintro h1{line-height:40px; font-size:16px; text-align:left; font-weight:normal; color:#3483a7;}
+#ebookBookDetail .bookintro p{line-height:24px; text-align:left; font-size:14px; margin:5px auto;}
+
+/*详细页目录切换样式*/
+#ebookBookCatalog{margin-top:40px; background:url(../../images/common/ebook_catalog_bg01.gif) 0 37px repeat-x;}
+#ebookBookCatalog_t{}
+#ebookBookCatalog_t li{width:124px; height:39px; line-height:39px; font-size:14px; float:left; margin-left:15px;}
+#ebookBookCatalog_t .on{background:url(../../images/common/ebook_catalog_bg02.gif) top no-repeat; color:#628ed1; font-weight:bold;}
+#ebookBookCatalog_t .off{background:url(../../images/common/ebook_catalog_bg03.gif) top no-repeat; color:#999;}
+#ebookBookCatalog_t .off:hover{color:#628ed1; font-weight:bold; cursor:pointer;}
+#ebookBookCatalog div{background:#f8fbfd; padding:20px 0 40px 0;}
+#ebookBookCatalog div h1{font-size:14px; text-align:left; width:726px; margin:20px auto 0 auto;}
+#ebookBookCatalog div ul{margin:20px auto 0 auto; width:726px;}
+#ebookBookCatalog div li{line-height:24px; font-size:14px; text-align:left; float:left; width:227px; background:url(../../images/common/arrow01.gif) left no-repeat; padding-left:15px;}
+#ebookLeftBookInfo{background:#f7fbfe; border:1px solid #f2f2f2; padding:20px 0 20px 0;}
+#ebookLeftBookInfo h1{font-size:14px; font-family:MicroSoft YaHei; line-height:24px;}
+#ebookLeftBookInfo dl{text-align:left; width:170px; margin:10px auto 0 auto;}
+#ebookLeftBookInfo dt{width:48px; float:left; height:24px; line-height:24px; clear:left; color:#3483a7;}
+#ebookLeftBookInfo dd{float:left; line-height:24px; overflow:hidden;}
+#ebookLeftBookInfo p{margin-top:10px;}
+#ebookBookArticleNav td{text-align:left; padding-right:10px;}
+#ebookBookArticleNav h1{line-height:37px; font-weight:normal;}
+#ebookBookArticleTitle{margin:20px auto 0 auto; font-size:26px; line-height:40px; height:40px; font-family:MicroSoft YaHei,黑体;}
+#ebookBookArticleContent{text-align:left; line-height:170%; font-size:14px; margin-top:40px;}
+#ebookBookArticleContent p{margin:5px auto;}
+#ebookBookArticleBottom{width:600px; margin-top:40px;}
+#ebookBookArticleBottom li{float:left; line-height:20px; font-size:14px; width:300px;}
+#ebookCreditAdd{}
+#ebookCreditAdd #ebookCreditAddTitle{font-size:26px; line-height:40px; height:40px; font-family:MicroSoft YaHei,黑体; text-align:left;}
+#ebookCreditAdd dl{margin-top:20px;}
+#ebookCreditAdd dt{float:left; width:15%; line-height:30px; text-align:left; font-size:14px; clear:left; margin-bottom:20px;}
+#ebookCreditAdd dd{float:left; width:85%; font-size:14px; text-align:left; margin-bottom:20px; line-height:30px;}
+#ebookCreditAdd dd input[type=text]{width:300px;}
+#ebookCreditAdd dd textarea{width:100%; height:300px;}
+#ebookCreditAdd dd select{font-size:14px;}
+#ebookCreditAdd dd h1{float:left;}
+#ebookCreditAdd dd h2{float:left; padding:3px 0 0 5px;}
+#ebookPressList ul{width:750px; margin-top:20px;}
+#ebookPressList li{width:250px; float:left; line-height:30px; margin-top:20px;}
+#ebookPressList li img{width:234px; height:60px; border:1px solid #eee;}
+
+/*----- 在线阅读右侧列表 -----*/
+.rightEbookBookList{width:755px;}
+.rightEbookBookList li{width:151px; float:left; height:180px; line-height:24px; font-size:14px;}
+.rightEbookBookList2{}
+.rightEbookBookList2 li{padding:20px 0 20px 0;}
+.rightEbookBookList2 .rebl_a{width:101px;}
+.rightEbookBookList2 .rebl_b{width:637px; text-align:left;}
+.rightEbookBookList2 .rebl_b h1{line-height:30px; font-weight:normal; font-size:14px;}
+.rightEbookBookList2 .rebl_b h2{line-height:30px; font-weight:normal; color:#ccc;}
+.rightEbookBookList2 .rebl_b p{line-height:20px;}
+
+#readFocus_on{background:url("/img/logo.png") no-repeat;}
+.readFocus_off{background:none;}
+.rightRankList{margin-top:100px;}
+.rightRankList li{line-height:24px; height:24px;}
+.rightRankList li h2{float:left; text-align:left; font-weight:normal;}
+.rightRankList li p{float:right; text-align:right; width:70px;}
+
+.detail-frame{display:none}
+.color-gray{color:#666}
+.detail-tip{position:absolute;width:300px;background:#fff;border:1px solid #ddd;padding:13px 13px 10px;word-wrap:break-word; text-align:left; line-height:150%}
+.detail-tip h2{color:#111;padding-top:5px; font-size:14px; line-height:24px;}
+.detail-tip p{margin:0 0 10px}
+.detail-tip{border-color:#ddd}
+.arrow-left{position:absolute;width:6px;height:9px;top:30px;left:0;margin-left:-6px;background:url(../../images/common/arrow_gray.gif) no-repeat}
+.arrow-right{position:absolute;width:6px;height:9px;top:30px;left:326px;background:url(../../images/common/arrow_gray.gif) no-repeat -6px 0}
+.shadow-right{-moz-border-radius:3px;-webkit-border-radius:3px;-moz-box-shadow:2px 2px 2px #999;-webkit-box-shadow:2px 2px 2px #999}
+.shadow-left{-moz-border-radius:3px;-webkit-border-radius:3px;-moz-box-shadow:-2px 2px 2px #999;-webkit-box-shadow:-2px 2px 2px #999}
+
+/*----- 小组 -----*/
+#groupNewList{margin-top:20px;}
+#groupNewList ul{}
+#groupNewList li{margin-top:20px; padding-bottom:20px;}
+#groupNewList li .g_a{width:108px; float:left; position:relative;}
+#groupNewList li .g_a div{line-height:11px; background:#fff; font-size:9px; position:absolute; z-index:100; bottom:1px; right:1px; opacity: .6; filter: alpha(opacity=60);}
+#groupNewList li .g_b{width:472px; float:right;}
+#groupNewList li .g_b h1{line-height:30px; font-size:16px; text-align:left; font-weight:normal;}
+#groupNewList li .g_b h2{float:left; line-height:20px; text-align:left; font-weight:normal;}
+#groupNewList li .g_b h3{float:right; line-height:20px; text-align:right; font-weight:normal; color:#ccc;}
+#groupNewList li .g_b p{line-height:20px; text-align:left;}
+#groupNewGroupList{margin-top:20px;}
+#groupMyGroupList{margin-top:20px;}
+#groupAd01{padding-top:20px; border-top:1px solid #999; margin-top:20px;}
+#groupAd01 img{max-width:358px; height:128px;}
+#groupClassList{margin-top:20px;}
+#groupClassList ul{margin-top:10px;}
+#groupClassList li{line-height:30px; text-align:left; float:left; width:33%; color:#ccc; font-size:14px;}
+#groupLeftClassList{}
+#groupLeftClassList ul{}
+#groupLeftClassList li{float:left; font-size:14px; text-align:left; width:200px; height:20px; line-height:20px; word-break:keep-all; white-space:nowrap; overflow:hidden; margin-top:20px;}
+#groupLeftClassList li span{color:#ccc;}
+
+.leftGroupList{margin-top:20px;}
+.leftGroupList li{width:50%; float:left; height:100px;}
+.leftGroupList li h1{width:77px; position:relative; font-weight:normal;}
+.leftGroupList li h1 div{line-height:11px; background:#fff; font-size:9px; position:absolute; z-index:100; bottom:1px; right:1px; opacity: .6; filter: alpha(opacity=60); width:auto;}
+.leftGroupList li div{width:203px;}
+.leftGroupList li h2{line-height:30px; font-size:14px; text-align:left; font-weight:normal;}
+.leftGroupList li p{line-height:20px; text-align:left;}
+.rightGroupList{margin-top:20px}
+.rightGroupList li{width:89px; height:116px; float:left; line-height:24px; position:relative;}
+.rightGroupList li div{line-height:11px; background:#fff; font-size:9px; position:absolute; z-index:100; top:65px; right:7px; opacity: .6; filter: alpha(opacity=60);}
+.rightGroupList1 li{width:100px; height:130px; float:left; line-height:24px; position:relative;}
+.rightGroupList1 li div{line-height:11px; background:#fff; font-size:9px; position:absolute; z-index:100; top:65px; right:7px; opacity: .6; filter: alpha(opacity=60);}
+#ccgroupMyGroupList{text-align:left;}
+#ccgroupMyGroupList .bookname{font-size:24px; line-height:40px; height:40px; font-family:MicroSoft YaHei,黑体; color: #069;}
+
+
+/*小组分类->左侧列表*/
+#group_class_list li{width:142px; float:left; text-align:left; line-height:20px; margin:0 10px 10px auto; height:60px; overflow:hidden}
+#group_class_list li span{color:#999}
+#group_class_list_sec{line-height:20px}
+#group_class_list_sec p{color:#336699}
+#group_class_list_sec span{color:#999}
+#group_class_list_sec li{width:104px; float:left; text-align:left; margin:10px 10px 0 auto; height:20px; overflow:hidden}
+.group_1{width:100px; text-align:left; float:left}
+.group_2{width:500px; text-align:left; float:right; line-height:20px}
+.group_2 span{color:#999}
+
+/*----- 会员 -----*/
+#loginArea{margin-top:30px;}
+#loginArea dl{}
+#loginArea dt{float:left; width:12%; line-height:30px; text-align:left; font-size:14px; clear:left; margin-bottom:20px;}
+#loginArea dd{float:left; width:88%; line-height:30px; height:30px; font-size:14px; text-align:left; margin-bottom:20px;}
+#loginArea dd input[type=text]{width:200px;}
+#loginArea dd input[type=password]{width:200px;}
+#loginArea dd p{height:24px; font-size:12px; float:left; width:259px;}
+#loginArea dd h1{float:left;}
+#loginArea dd h2{float:left; padding:3px 0 0 5px;}
+#loginArea dd span{display:none; color:#09C; line-height:30px;}
+
+/*----- 弹窗 -----*/
+#recommendBox{padding:6px;}
+#bbv{position:fixed; top:226px; right:7px; _position:absolute; _top:expression(documentElement.scrollTop+226);}
+#dbimg{width:38px; height:38px; background:url(../../../images/common/sidehide_r.png); color:#fff; font-weight:bold; cursor:pointer; margin:0;}
+#bbv_l{position:fixed; top:226px; left:7px; _position:absolute; _top:expression(documentElement.scrollTop+226);}
+#dbimg_l{width:38px; height:38px; background:url(../../../images/common/sidehide_l.png); color:#fff; font-weight:bold; cursor:pointer; margin:0;}
+
+#footer{border-top:2px solid #e5e5e5; margin-top:40px; padding-top:10px;}
+#footer h1{width:460px; text-align:left; float:left; line-height:30px; font-weight:normal;}
+#footer p{text-align:right; float:right; line-height:30px;}
+
+/*小组内容页->小组最新话题列表及图书信息*/
+#xz_speak_list ul li{line-height:30px}
+.xz_speak_list_1{width:320px; float:left; text-align:left}
+.xz_speak_list_2{width:100px; float:left; text-align:left}
+.xz_speak_list_3{width:80px; float:left; text-align:left}
+.xz_speak_list_3 span{color:#000}
+.xz_speak_list_4{width:100px; float:right; text-align:right}
+
+#xzDetailInfo{text-align:left;}
+#xzDetailInfo .bookname{font-size:26px; line-height:40px; height:40px; font-family:MicroSoft YaHei,黑体;}
+#xzDetailInfo .bookcover{width:100px; margin-top:20px;}
+#xzDetailInfo .bookinfo{width:480px; margin-top:20px;}
+#xzDetailInfo .bookinfo dl{ font-size:14px;}
+#xzDetailInfo .bookinfo dt{width:80px; float:left; height:30px; line-height:30px; clear:left; color:#3483a7;}
+#xzDetailInfo .bookinfo dd{float:left; height:30px; line-height:30px; padding-left:10px;}
+#xzDetailInfo .bookintro p{line-height:24px; text-align:left; font-size:14px; margin:5px auto;}
+#xzDetailInfo .bookintro h1{line-height:24px; font-size:14px; color:#3483a7; text-align:left;}
+
+.xz_reply_list_2{width:500px; float:right; text-align:left; line-height:20px}
+.xz_reply_list_2 h2{width:340px; height:25px; float:left; background:#F5F5F5; font-weight:normal}
+.xz_reply_list_2 span{width:160px; float:right; height:25px; text-align:right; color:#999; background:#F5F5F5}
+.xz_reply_list_2 p{width:100%; font-size:12px ; line-height:25px}
+.xz_reply_list_1{width:90px; float:left; text-align:left}
+
+/*左侧->小组列表*/
+#left_xz_list ul li{width:114px; height:100px; float:left; margin-top:20px}
+#left_xz_list ul li img{margin-bottom:2px}
+#left_xz_list ul li span{color:#999}
+/*小组搜索*/
+#checkbox_xz {float:left; height:auto; width:300px}
+#checkbox_xz div {float:left; width:77px; white-space:nowrap; overflow:hidden; text-align:left; line-height:20px; margin-top:0}
+/*小组->我所在的小组话题更新*/
+.group_new_1{width:80px; float:left}
+.group_new_2{width:400px; padding:0 5px 0 5px; float:left; text-align:left; line-height:20px}
+.group_new_2 span{color:#999}
+.group_new_3{width:100px; float:left; text-align:center}
+/*cc小组话题内容页->回复列表*/
+.cc_reply01_list_1{width:60px; float:left; text-align:left}
+.cc_reply01_list_2{width:510px; float:right; text-align:left; line-height:30px}
+.cc_reply01_list_2 h2{width:230px; float:left; background:#F5F5F5; font-weight:normal}
+.cc_reply01_list_2 span{width:280px; float:right; text-align:right; color:#999; background:#F5F5F5}
+.cc_reply01_list_2 p{width:100%}
+
+/*cc我的小组->左侧列表*/
+.my_groupcc_speak_1{width:260px; float:left; line-height:20px; text-align:left}
+.my_groupcc_speak_2{width:80px; float:left; line-height:20px; text-align:left}
+.my_groupcc_speak_3{width:30px; float:left; line-height:20px; text-align:left}
+.my_groupcc_speak_4{width:88px; float:right; line-height:20px; text-align:right; color:#999}
+.my_groupcc_speak_4 span{color:#444}
+
+/*cc我回复的小组话题*/
+#group_cc_reply_list ul li{line-height:20px}
+.group_cc_reply_list_1{width:210px; float:left; text-align:left}
+.group_cc_reply_list_2{width:150px; float:left; text-align:left; white-space:nowrap; overflow:hidden}
+.group_cc_reply_list_3{width:120px; float:left; text-align:left; white-space:nowrap; overflow:hidden}
+.group_ncc_reply_list_4{width:100px; float:right; text-align:right; color:#999}
+.group_cc_reply_list_4 span{color:#444}
+
+/*cc添加小组发言->左侧*/
+#add_xz_speak ul li{margin-top:15px}
+#add_xz_speak ul li h2{width:50px; font-size:14px; font-weight:normal; float:left; line-height:20px; text-align:left; color:#336699}
+#add_xz_speak ul li p{width:378px; font-size:14px; float:left; text-align:left; line-height:20px}
+#add_xz_speak ul li p a{font-size:12px}
+#add_xz_speak ul li span{width:30px; float:right; font-size:14px; color:#FF6600; line-height:20px; text-align:left}
+
+.group_display_1{width:60px; text-align:left; float:left}
+.group_display_2{width:500px; text-align:left; float:right; line-height:20px}
+.group_display_2 span{color:#999}
+
+/*带下滑线的li*/
+#under_line_new ul li{margin-top:20px; height:auto; padding-bottom:20px; background:url(../../../images/common/line_01.gif) repeat-x bottom; clear:both; text-align:left; line-height:20px}
+/*首页->最关注的书*/
+#index_concern_book ul li{width:114px; margin-top:10px; height:130px; float:left; text-align:center}
+#index_concern_book ul li img{margin-bottom:6px!important; margin-bottom:8px}
+
+/*正在发生->左侧列表*/
+#myfriend_left_1{width:100%; border-bottom:1px solid #5bafe5}
+#myfriend_left_1 ul li{width:70px; height:20px; line-height:19px; float:left; margin:0 5px 0 auto}
+.myfriend_menu_no{background:url(../../images/myfriend/change_no.gif) no-repeat}
+.myfriend_menu_no a:link,.myfriend_menu_no a:visited{color:#494949; text-decoration:none}
+.myfriend_menu_no a:hover,.myfriend_menu_no a:active{color:#ffffff; font-weight:bold; text-decoration:none}
+.myfriend_menu_yes{background:url(../../images/myfriend/change_yes.gif) no-repeat}
+.myfriend_menu_yes a:link,.myfriend_menu_yes a:visited{color:#ffffff; font-weight:bold; text-decoration:none}
+.myfriend_menu_yes a:hover,.myfriend_menu_yes a:active{color:#ffffff; font-weight:bold; text-decoration:none}
+.mycc_action_1{width:80px; float:left}
+.mycc_action_2{width:400px; padding:0 5px 0 5px; float:left; text-align:left; line-height:20px}
+.mycc_action_2 span{color:#999999}
+.mycc_action_3{width:70px; float:left; text-align:right}
+
+
+
+/*高级搜索*/
+#search_menu{width:100%; height:28px; background:url(../../../images/search/menu_bg_01.gif) no-repeat}
+#search_menu ul li{width:44px; height:18px; float:left; margin-left:10px; padding-top:10px; display:inline}
+.search_menu_no{background:none}
+.search_menu_no a:link, .search_menu_no a:visited{color:#336699; text-decoration:none}
+.search_menu_no a:hover, .search_menu_no a:active{color:#fff; text-decoration:none}
+.search_menu_yes{background:url(../../../images/search/menu_on.gif) no-repeat}
+.search_menu_yes a:link, .search_menu_yes a:visited{color:#0080a5; text-decoration:none}
+.search_menu_yes a:hover, .search_menu_yes a:active{color:#0080a5; text-decoration:none}
+#search_option_1{width:100%; height:auto; background:url(../../../images/search/menu_bg_02.gif) repeat-y}
+#search_option_1 ul{width:600px; margin:0 auto; padding:20px 0 0 0}
+#search_option_1 ul li{padding-bottom:20px}
+#search_option_1 ul li h2{width:80px; float:left; font-weight:normal; text-align:left; line-height:20px; padding-left:15px}
+#search_option_1 ul li p{width:350px; float:left}
+#search_option_2{width:100%; height:6px; background:url(../../../images/search/menu_bg_03.gif) no-repeat}
+#search_result{line-height:24px; border-bottom:1px solid #999; text-align:left}
+#search_result span{color:#336699; font-size:14px}
+a.search_result_no:link, a.search_result_no:visited{color:#336699; text-decoration:none}
+a.search_result_no:hover, a.search_result_no:active{color:#FFFFFF; text-decoration:none; background:#336699}
+a.search_result_yes:link, a.search_result_yes:visited{color:#FFFFFF; text-decoration:none; background:#FF3300}
+a.search_result_yes:hover, a.search_result_yes:active{color:#FFFFFF; text-decoration:none; background:#FF3300}
+
+
+/*登陆*/
+/* top (have login) */
+#login_mem_1{width:305px; height:135px; margin:0 0 0 10px; float:left;display:inline}
+#user_info{width:auto; height:auto; margin:10px auto 0 10px; float:left; display:inline; line-height:22px}
+a.change:link,a.change:visited{color:#CCCCCC; text-decoration:none; line-height:28px}
+a.change:hover,a.change:active{color:#eee; text-decoration:none; line-height:28px}
+#login_mem_1 ul{float:left; margin:0  auto 0 30px; display:block}
+#login_mem_1 ul li{text-align:left; color:#666666; line-height:20px; width:180px; clear:both}
+#login_mem_1 ul li h1{font-size:14px; line-height:25px; color:#FF6600; text-align:left; font-family:Arial, Helvetica, sans-serif}
+#login_mem_1{width:305px; height:135px; float:right}
+#login_mem_1 h1{text-align:left; line-height:24px; font-size:14px; color:#0099CC}
+#login_mem_1 p{text-align:left; line-height:25px}
+#top_2_right_3{width:305px; height:135px; float:right; background:url(../../images/drift/bg_01.gif) no-repeat top right}
+#top_2_right_3 h1{text-align:left; line-height:24px; font-size:14px; color:#17bacb; background:url(../../images/drift/dot_02.gif) no-repeat 90px}
+#top_2_right_3 p{text-align:left; line-height:20px}
+.userinfo_1{float:left; width:62px; text-align:right; height:16px}
+.userinfo_2{float:left; height:16px; white-space:nowrap; overflow:hidden}
+.userinfo_2 a:link,.userinfo_2 a:visited{color:#444; text-decoration:none}
+.userinfo_2 a:hover,.userinfo_2 a:active{color:#0066FF; text-decoration:none}
+.userinfo_3{float:left; height:16px}
+.login:link,.login:visited{color:#FF6600; text-decoration:none}
+.login:hover,.login:active{color:#FFFFFF; text-decoration:none; background:#FF6600}

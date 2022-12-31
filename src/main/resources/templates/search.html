@@ -1,0 +1,180 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head style="background-color: #f0f8fd">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="referrer" content="no-referrer"/>
+    <title>在线阅读 | 北邮阅读网</title>
+    <link th:href="@{/css/common.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/thickbox.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/text1.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/global.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/other.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/review.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/imstyle.css}" type="text/css" rel="stylesheet"  />
+    <link th:href="@{/css/styles.css}" rel="stylesheet" type="text/css" />
+
+<!--    <script type="text/javascript">-->
+<!--        var GB_ROOT_DIR = "./images/greybox/";-->
+<!--    </script>-->
+    <script type="javascript" th:src="@{/js/AJS.js}"></script>
+    <script type="javascript" th:src="@{/js/AJS_fx.js}"></script>
+    <script type="javascript" th:src="@{/js/gb_scripts}"></script>
+    <script type="javascript" th:src="@{/js/MSClass.js}"></script>
+
+    <script type="javascript" th:src="@{/js/validator.js}"></script>
+
+<!--    <script type="text/javascript" src="smarty/javascript/top.js"></script>-->
+
+</head>
+<body><!--navigator begin-->
+<div th:if="${session.user} eq null">
+    <div id="header" class="ww clearfix">
+        <div id="sim_login" class="rr"><h1></h1><p class="yellow"><a th:href="@{/mainTologin}" class="thickbox yellow" title="登录">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a th:href="@{/mainTologin}" class="thickbox yellow" title="注册">注册</a></p><h2></h2></div>
+    </div>
+</div>
+<div th:unless="${session.user} eq null">
+    <div class="ww clearfix">
+        <div class="rr"><h1></h1>
+            <p class="yellow">当前账户：[[${session.user}]]退出</p>
+            <h2></h2></div>
+    </div>
+</div>
+
+<!--<div id="header" class="ww clearfix">-->
+<!--    <div id="sim_login" class="rr"><h1></h1>-->
+<!--        <p class="yellow"><a href="member.php?uid=">当前账户：</a>&nbsp;<a href="quit.php?goto=quit" >退出</a></p>-->
+<!--        <h2></h2></div>-->
+<!--</div>-->
+<div id="mainTop" class="ww">
+    <div id="login" class="ll block"><a th:href="@{/}" title="logo"><img src="./img/logo.png" alt="logo" /></a></div>
+<!--    <div id="login" class="ll block"><img src="" alt="logo" /></div>-->
+    <div id="mainNav" class="ll f14">
+        <ul class="clearfix">
+            <li><a th:href="@{/}" class="black">首页</a></li>
+            <li><a th:href="@{/category_do(bookLabel='/')}" class="black">图书</a></li>
+            <li><a th:href="@{/bookshelf_do(bookLabel='/')}" class="black">我的书架</a></li>
+        </ul>
+    </div>
+
+    <!--<form id="form1" name="form1" method="get" th:action="@{/search_do}">
+        <div id="mainSch" class="ll"><input type="hidden" name="search" value="1" /><input name="searchInfo" id="key1" type="text"><input type="submit" name="submit" id="search_submit" /></div>
+    </form>-->
+    <form id="form1" name="form1" method="get" th:action="@{/search_do}">搜书：
+        <label>
+            <input name="searchInfo" id="key" type="text">
+        </label>
+        <input type="submit" value="搜索">
+    </form>
+
+
+</div>
+<div id="subNav_b" style="background-color: #3dd5f3; width: 100%">
+    <div class="ww clearfix">
+        <h1>搜索结果</h1>
+    </div>
+</div>
+<!--navigator end--><!--search begin-->
+<div class="ww clearfix"> <!--search_book left begin-->
+    <script type="javascript" th:src="@{/js/comment2.js}"></script>
+
+    <div class="leftBox ll">
+<!--        <div id="search_menu">-->
+<!--            <ul>-->
+<!--                <li id="search_menu_1" class="search_menu_yes"><a href="javascript:void(0);" onclick="change(1,'search_menu',1);">全部</a></li>-->
+<!--                       <li id="search_menu_2" class="search_menu_no"><a href="javascript:void(0);" onclick="javascript:change(2,'search_menu',4);">图书</a></li>&ndash;&gt;-->
+<!--                       <li id="search_menu_3" class="search_menu_no"><a href="javascript:void(0);" onclick="javascript:change(3,'search_menu',4);">书评</a></li>&ndash;&gt;-->
+<!--                <div class="clear"></div>-->
+<!--            </ul>-->
+<!--        </div>-->
+        <div id="search_option">
+            <!--搜索图书开始-->
+            <ul id="search_menu1">
+                <!--<form id="form2" name="form2" method="get" th:action="@{/search_do}">
+<!--                <form id="form_book" name="form_book" method="GET" action="" onsubmit="return (this);">
+                    <input type="hidden" name="action" value="all" />
+                    <input type="hidden" name="search" value="1" />
+                    <li>
+                        <h2>关键字:</h2>
+                        <p>
+                            <input name="searchInfo" id="key2" type="text" value="请输入关键字" onfocus="clear_value('key2', '请输入关键字');" onblur="reset_value('key2', '请输入关键字');" style="width:250px" />
+                            &nbsp;
+                            <input name="Submit2" type="submit" value="提 交" class="btn1" />
+                        </p>
+                        <div class="clear"></div>
+                    </li>
+                </form>-->
+            </ul>
+            <!--搜索图书结束-->
+        </div>
+        <div id="under_line" class="mar_top" style="width: 100%">
+            <!--<div id="subNav_b" style="background-color: #3dd5f3; width: 100%">
+                <div class="ww clearfix">
+                    <h1>搜索结果</h1>
+                </div>
+            </div>-->
+<!--                <p><a href="" class="search_result_yes" id="search_result_1" title="点击查看" >图书（123条）</a>&nbsp;|&nbsp;<a href="search.php?search=1&action=all&key=%E7%99%BE%E5%B9%B4&class=review" class="search_result_no" id="search_result_2" title="点击查看" >书评（30条）</a>&nbsp;|&nbsp;<a href="search.php?search=1&action=all&key=%E7%99%BE%E5%B9%B4&class=group" class="search_result_no" id="search_result_3" title="点击查看" >小组（3条）</a></p></div>-->
+            <!--搜索图书结果 开始-->
+            <ul th:each="c, State : ${resultBookList}">
+
+                <li class="clearfix ">
+                    <div class="leftBox1 ll"><a th:href="@{/bookdetail_do(bookID=${c.book_id})}" th:title="${c.book_name}"><img th:src= "${c.img_url}" th:alt="${c.book_name}" width="128" height="166" class="imgBook02 imgb"/></a></div>
+                    <div class="rightBox1 rr block">
+                        <div class="wMax clearfix">
+                            <h1><a th:href="@{/bookdetail_do(bookID=${c.book_id})}"> [[${c.book_name}]]</a></h1>
+                        </div>
+                        <div>
+                            <p><span class="simp-intro"> 作者:[[${c.author}]]<br />
+                                [[${c.brief_introduction}]] </span></p>
+                        </div>
+<!--                        <p><span>作者:<font class="cc_title">[[${c.author}]]&nbsp;&nbsp;</font>定价:<font class="cc_title">[[${c.current_price}]]</font>元</span><br />-->
+<!--                            [[${c.brief_introduction}]]</p>-->
+                    </div>
+                    <div class="clear"></div>
+                </li>
+            </ul>
+<!--            <div class="mar_top" id="pageStr"><a href='search.php?search=1&action=all&class=&key=%E7%99%BE%E5%B9%B4&type%5B%5D=&page=1' class = "link_000000"><< </a>&nbsp;&nbsp;<b style='color:red;'>1</b>&nbsp; <a href='search.php?search=1&action=all&class=&key=%E7%99%BE%E5%B9%B4&type%5B%5D=&page=2' class = "link_000000">&nbsp;2&nbsp;</a> <a href='search.php?search=1&action=all&class=&key=%E7%99%BE%E5%B9%B4&type%5B%5D=&page=3' class = "link_000000">&nbsp;3&nbsp;</a> <a href='search.php?search=1&action=all&class=&key=%E7%99%BE%E5%B9%B4&type%5B%5D=&page=4' class = "link_000000">&nbsp;4&nbsp;</a> <a href='search.php?search=1&action=all&class=&key=%E7%99%BE%E5%B9%B4&type%5B%5D=&page=5' class = "link_000000">&nbsp;5&nbsp;</a> <input type='text' size='2' style='height: 16px; border:1px solid #E5E5E5;' onkeydown="javascript: if(window.event.keyCode==13) window.location='search.php?search=1&action=all&class=&key=%E7%99%BE%E5%B9%B4&type%5B%5D=&page='+this.value+'';"> <a href='search.php?search=1&action=all&class=&key=%E7%99%BE%E5%B9%B4&type%5B%5D=&page=13' class = "link_000000"> >></a>&nbsp;&nbsp;页数: ( 1/13 共 123 条)</div>-->
+
+            <!--搜索图书结果 结束-->
+            </div>
+        </div>
+    </div>
+    <!--search_book left end-->  <!--search right begin-->
+        <div class="rightBox rr">
+            <div id="indexLogin" class="clearfix">       <form name="regform" method="post" action="register.php?goto=login" onSubmit="return checkLoginForm();">
+                <dl class="clearfix">
+                    <dt>用户名：</dt>
+                    <dd>
+                        <input name="username" type="text" id="username"  />
+                    </dd>
+                    <dt>密　码：</dt>
+                    <dd>
+                        <input type="password" value="" name="password" id="password" />
+                        <br />
+                        <font id="PassWordMsg" name="PassWordMsg"></font> </dd>
+                </dl>
+                <h1 class="ll nn">
+                    <input type="checkbox" name="remember" value="checkbox" checked="checked" />
+
+                </h1>
+                <p class="rr">
+                    <input type="submit" name="submit" id="submit" value="登录" class="btn1" />
+                    <a href="open_reg.php" class="login" onclick="return GB_showCenter('', this.href,366,576)"> <input type="button" value="注册" name="reg"  class="btn1" /></a>
+                </p>
+            </form>
+            </div>
+        </div>
+<!--    search right end-->
+</div>
+
+<!--search end-->
+
+<div class="loading_message" id="loadingMessage" style="display:none;">
+    <p><b><b><b><img src="./images/common/xajax-loading.gif" alt="">  &nbsp;&nbsp;&nbsp;&nbsp;loading...</b></b>
+    </b>
+    </p>
+</div>
+</div>
+</body>
+
+</html>

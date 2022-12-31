@@ -1,0 +1,128 @@
+
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="referrer" content="no-referrer"/>
+    <title>在线阅读 | 北邮阅读网</title>
+    <link th:href="@{/css/common.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/thickbox.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{css/text.css}" rel="stylesheet" type="text/css" >
+
+    <script th:src="@{/js/common.js}" type="text/javascript"></script>
+    <script th:src="@{/js/jquery-1.7.2.js}" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            var t;
+            $('#readFocusList_r ul li:first').addClass('readFocus_on');
+            $('#focus_pic').attr('src', $('#readFocusList_r ul li:first').attr('pic1'));
+            $('#focus_url').attr('href', $('#readFocusList_r ul li:first').attr('url1'));
+            $('#readFocusList_r ul li').mouseover(
+                function (){
+                    $('#readFocusList_r ul li').removeClass('readFocus_on');
+                    $(this).addClass('readFocus_on');
+                    $('#focus_pic').attr('src', $(this).attr('pic1'));
+                    $('#focus_url').attr('href', $(this).attr('url1'));
+                }
+            );
+            var a = 0;
+            setInterval(function(){
+                    $("#readFocusList_r ul li").removeClass('readFocus_on');
+                    var t = $('#focus_active_'+a);
+                    t.addClass('readFocus_on');
+                    var pic1 = t.attr('pic1');
+                    var url1 = t.attr('url1');
+                    $('#focus_pic').attr('src', pic1);
+                    $('#focus_url').attr('href',url1);
+                    a++;
+                    if(a > 2) a=0;
+                }, 3000
+            );
+            showBookInfo('.leftBookList');
+        });
+    </script>
+</head>
+
+<body style="background-color: #f0f8fd">
+<h1>[[${msg}]]</h1>
+
+<div  th:if="${session.user} eq null">
+    <div id="header1" class="ww clearfix">
+        <div id="sim_login" class="rr"><h1></h1><p class="yellow"><a th:href="@{/mainTologin}" class="thickbox yellow" title="登录">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a th:href="@{/mainTologin}" class="thickbox yellow" title="注册">注册</a></p><h2></h2></div>
+    </div>
+</div>
+<div id="header" class="ww clearfix" th:unless="${session.user} eq null">
+    <div id="sim_login1" class="rr"><h1></h1>
+        <p class="yellow">当前账户:<a href="" class="u_name">[[${session.user}]]</a>&nbsp;<a th:href="@{/logout_do}">|退出</a></p>
+        <h2></h2></div>
+</div>
+
+<div id="mainTop" class="ww">
+    <div id="login" class="ll block"><a th:href="@{/main}" title="logo"><img src="img/btn.png" alt="logo" /></a></div>
+    <div id="mainNav" class="ll f14">
+        <ul class="clearfix">
+            <li><a th:href="@{/}" class="black">首页</a></li>
+            <li><a th:href="@{/category_do(bookLabel='/')}" class="black">图书</a></li>
+            <li><a th:href="@{/bookshelf_do(bookLabel='/')}" class="black">我的书架</a></li>
+        </ul>
+    </div>
+    <!--<form id="form1" name="form1" method="get" th:action="@{/search_do}">
+        <div id="mainSch" class="ll"><input name="searchInfo" id="key" type="text"></div>
+    </form>-->
+    <form id="form1" name="form1" method="get" th:action="@{/search_do}">搜书：
+        <label>
+            <input name="searchInfo" id="key" type="text">
+        </label>
+        <input type="submit" value="搜索">
+    </form>
+
+</div>
+<div class="ww clearfix">
+    <div class="leftBox ll">
+        <div id="readFocusList" class="clearfix">
+            <div id="readFocusList_l" class="block"><a href="" id="focus_url" ><img th:src="${session.topBookList.get(0).img_url}" id="focus_pic" width="267" height="380" class="imgBook04 imgb" /></a></div>
+            <div id="readFocusList_r">
+                <ul >
+                    <li th:each="topBook, State : ${session.topBookList}" th:id="'focus_active_'+${State.index} " th:pic1="${topBook.img_url}"  th:url1="'/bookdetail_do?bookID='+${topBook.book_id}"><h1><a th:href="@{/bookdetail_do(bookID=${topBook.book_id})}" th:title="${topBook.book_name}" >[[${topBook.book_name}]]</a></h1><p>作者：<span
+                            class="cc_title"> [[${topBook.author}]]</span><br /> <span class="goods-title" th:text="${topBook.brief_introduction}"> </span></p></li>
+                </ul>
+            </div>
+        </div>
+        <div id="readNewList">
+            <div class="tit01 clearfix"><h1><a>新书上架</a></h1><p><a href="">刷新…</a></p></div>
+            <ul class="leftBookList clearfix"  >
+                <li th:each="bottomBook, State : ${session.bottomBookList}">
+                    <div class="detail-frame"><h2 th:text="${bottomBook.book_name}"></h2><p class="color-gray" th:text="${bottomBook.author}+' '+${bottomBook.publishing_house}">
+                        <p class="color-gray">
+                    </p><span class="goods-title" th:text="${bottomBook.brief_introduction}"></span>
+                    </p></div >
+                    <a th:href="@{/bookdetail_do(bookID=${bottomBook.book_id})}" >
+                        <img th:src="${bottomBook.img_url}" width="128" height="166" class="imgBook02 imgb" /></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="rightBox rr">
+        <div id="readHistory">
+            <div class="tit01 clearfix"><h1>阅读历史</h1><p><a href="">清空历史</a></p></div>
+            <div th:if="${session.historyBook} eq null" class="line01" > 还没有历史记录</div>
+            <!--<div id="readHistory_t" th:unless="${session.user} eq null class="line01">
+            使用本功能前需要先 <a th:href="@{/mainTologin}" class="thickbox yellow" title="登录">登录</a></div>-->
+            <div th:unless="${session.historyBook} eq null"  >
+                <ul class="rightRankList">
+                    <li class="clearfix" th:each="historyBook, State : ${session.historyBook}"><h2><a th:href="@{/bookdetail_do(bookID=${historyBook.book_id})}"  th:text="${historyBook.book_name}"></a></h2></p></li>
+                </ul></div>
+        </div>
+        <div id="readMonthRank">
+            <div class="tit01 clearfix"><h1><a href="">热门图书</a></h1><p><a th:href="@{/category_do(bookLabel='')}">更多…</a></p></div>
+            <ul class="rightRankList">
+                <li class="clearfix" th:each="ringtBook, State : ${session.rightBookList}"><h2><a th:href="@{/bookdetail_do(bookID=${ringtBook.book_id})}"  th:text="${ringtBook.book_name}"></a></h2></p></li>
+            </ul>
+        </div>
+    </div>
+    <div style="clear:both; margin-top:20px"></div>
+</div>
+</body>
+</html>
